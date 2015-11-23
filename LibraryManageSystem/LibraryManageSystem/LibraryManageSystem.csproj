@@ -51,6 +51,12 @@
     <Compile Include="Borrow.Designer.cs">
       <DependentUpon>Borrow.cs</DependentUpon>
     </Compile>
+    <Compile Include="BorrowResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BorrowResult.Designer.cs">
+      <DependentUpon>BorrowResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
     </Compile>
     <EmbeddedResource Include="Borrow.resx">
       <DependentUpon>Borrow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BorrowResult.resx">
+      <DependentUpon>BorrowResult.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
