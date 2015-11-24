@@ -41,7 +41,7 @@ using System.Data.Entity.ModelConfiguration;
 using System.Threading;
 using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption;
 
-namespace Common
+namespace Model
 {
     // ************************************************************************
     // Unit of work

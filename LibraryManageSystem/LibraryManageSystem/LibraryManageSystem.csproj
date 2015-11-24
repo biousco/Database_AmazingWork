@@ -119,6 +119,16 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LMSBLL\LMSBLL.csproj">
+      <Project>{9adff7f6-5442-43b1-9291-ee4d8baa6231}</Project>
+      <Name>LMSBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LMSDAL\LMSDAL.csproj">
+      <Project>{72e0fe98-2069-43f3-9279-490f07d565ba}</Project>
+      <Name>LMSDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
