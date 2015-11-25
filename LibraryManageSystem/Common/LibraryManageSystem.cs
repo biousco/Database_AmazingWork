@@ -41,7 +41,7 @@ using System.Data.Entity.ModelConfiguration;
 using System.Threading;
 using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption;
 
-namespace Model
+namespace Common
 {
     // ************************************************************************
     // Unit of work
@@ -57,6 +57,14 @@ namespace Model
         System.Threading.Tasks.Task<int> SaveChangesAsync(CancellationToken cancellationToken);
         
         // Stored Procedures
+        int Borrow1(string bId, string rId, int? c);
+        List<ManagerValidReturnModel> ManagerValid(string mId, string mPwd);
+        List<ManagerValidReturnModel> ManagerValid(string mId, string mPwd, out int procResult);
+        int Return1(string bId, string rId, int? c);
+        List<SearchReturnModel> Search(string bId, string bName, string author, string publisher);
+        List<SearchReturnModel> Search(string bId, string bName, string author, string publisher, out int procResult);
+        List<ViewerValidReturnModel> ViewerValid(string rId, string rPwd);
+        List<ViewerValidReturnModel> ViewerValid(string rId, string rPwd, out int procResult);
     }
 
     // ************************************************************************
@@ -120,6 +128,125 @@ namespace Model
         }
         
         // Stored Procedures
+        public int Borrow1(string bId, string rId, int? c)
+        {
+            var bIdParam = new SqlParameter { ParameterName = "@b_id", SqlDbType = SqlDbType.VarChar, Direction = ParameterDirection.Input, Value = bId, Size = 20 };
+            if (bIdParam.Value == null)
+                bIdParam.Value = DBNull.Value;
+
+            var rIdParam = new SqlParameter { ParameterName = "@r_id", SqlDbType = SqlDbType.VarChar, Direction = ParameterDirection.Input, Value = rId, Size = 20 };
+            if (rIdParam.Value == null)
+                rIdParam.Value = DBNull.Value;
+
+            var cParam = new SqlParameter { ParameterName = "@c", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Input, Value = c.GetValueOrDefault(), Precision = 10, Scale = 0 };
+            if (!c.HasValue)
+                cParam.Value = DBNull.Value;
+
+            var procResultParam = new SqlParameter { ParameterName = "@procResult", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Output };
+ 
+            Database.ExecuteSqlCommand("EXEC @procResult = [dbo].[Borrow1] @b_id, @r_id, @c", bIdParam, rIdParam, cParam, procResultParam);
+ 
+            return (int) procResultParam.Value;
+        }
+
+        public List<ManagerValidReturnModel> ManagerValid(string mId, string mPwd)
+        {
+            int procResult;
+            return ManagerValid(mId, mPwd, out procResult);
+        }
+
+        public List<ManagerValidReturnModel> ManagerValid(string mId, string mPwd, out int procResult)
+        {
+            var mIdParam = new SqlParameter { ParameterName = "@m_id", SqlDbType = SqlDbType.VarChar, Direction = ParameterDirection.Input, Value = mId, Size = 20 };
+            if (mIdParam.Value == null)
+                mIdParam.Value = DBNull.Value;
+
+            var mPwdParam = new SqlParameter { ParameterName = "@m_pwd", SqlDbType = SqlDbType.VarChar, Direction = ParameterDirection.Input, Value = mPwd, Size = 20 };
+            if (mPwdParam.Value == null)
+                mPwdParam.Value = DBNull.Value;
+
+            var procResultParam = new SqlParameter { ParameterName = "@procResult", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Output };
+            var procResultData = Database.SqlQuery<ManagerValidReturnModel>("EXEC @procResult = [dbo].[ManagerValid] @m_id, @m_pwd", mIdParam, mPwdParam, procResultParam).ToList();
+
+            procResult = (int) procResultParam.Value;
+            return procResultData;
+        }
+
+        public int Return1(string bId, string rId, int? c)
+        {
+            var bIdParam = new SqlParameter { ParameterName = "@b_id", SqlDbType = SqlDbType.VarChar, Direction = ParameterDirection.Input, Value = bId, Size = 20 };
+            if (bIdParam.Value == null)
+                bIdParam.Value = DBNull.Value;
+
+            var rIdParam = new SqlParameter { ParameterName = "@r_id", SqlDbType = SqlDbType.VarChar, Direction = ParameterDirection.Input, Value = rId, Size = 20 };
+            if (rIdParam.Value == null)
+                rIdParam.Value = DBNull.Value;
+
+            var cParam = new SqlParameter { ParameterName = "@c", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Input, Value = c.GetValueOrDefault(), Precision = 10, Scale = 0 };
+            if (!c.HasValue)
+                cParam.Value = DBNull.Value;
+
+            var procResultParam = new SqlParameter { ParameterName = "@procResult", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Output };
+ 
+            Database.ExecuteSqlCommand("EXEC @procResult = [dbo].[Return1] @b_id, @r_id, @c", bIdParam, rIdParam, cParam, procResultParam);
+ 
+            return (int) procResultParam.Value;
+        }
+
+        public List<SearchReturnModel> Search(string bId, string bName, string author, string publisher)
+        {
+            int procResult;
+            return Search(bId, bName, author, publisher, out procResult);
+        }
+
+        public List<SearchReturnModel> Search(string bId, string bName, string author, string publisher, out int procResult)
+        {
+            var bIdParam = new SqlParameter { ParameterName = "@b_id", SqlDbType = SqlDbType.VarChar, Direction = ParameterDirection.Input, Value = bId, Size = 20 };
+            if (bIdParam.Value == null)
+                bIdParam.Value = DBNull.Value;
+
+            var bNameParam = new SqlParameter { ParameterName = "@b_name", SqlDbType = SqlDbType.VarChar, Direction = ParameterDirection.Input, Value = bName, Size = 20 };
+            if (bNameParam.Value == null)
+                bNameParam.Value = DBNull.Value;
+
+            var authorParam = new SqlParameter { ParameterName = "@author", SqlDbType = SqlDbType.VarChar, Direction = ParameterDirection.Input, Value = author, Size = 20 };
+            if (authorParam.Value == null)
+                authorParam.Value = DBNull.Value;
+
+            var publisherParam = new SqlParameter { ParameterName = "@publisher", SqlDbType = SqlDbType.VarChar, Direction = ParameterDirection.Input, Value = publisher, Size = 20 };
+            if (publisherParam.Value == null)
+                publisherParam.Value = DBNull.Value;
+
+            var procResultParam = new SqlParameter { ParameterName = "@procResult", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Output };
+            var procResultData = Database.SqlQuery<SearchReturnModel>("EXEC @procResult = [dbo].[Search] @b_id, @b_name, @author, @publisher", bIdParam, bNameParam, authorParam, publisherParam, procResultParam).ToList();
+
+            procResult = (int) procResultParam.Value;
+            return procResultData;
+        }
+
+        public List<ViewerValidReturnModel> ViewerValid(string rId, string rPwd)
+        {
+            int procResult;
+            return ViewerValid(rId, rPwd, out procResult);
+        }
+
+        public List<ViewerValidReturnModel> ViewerValid(string rId, string rPwd, out int procResult)
+        {
+            var rIdParam = new SqlParameter { ParameterName = "@r_id", SqlDbType = SqlDbType.VarChar, Direction = ParameterDirection.Input, Value = rId, Size = 20 };
+            if (rIdParam.Value == null)
+                rIdParam.Value = DBNull.Value;
+
+            var rPwdParam = new SqlParameter { ParameterName = "@r_pwd", SqlDbType = SqlDbType.VarChar, Direction = ParameterDirection.Input, Value = rPwd, Size = 20 };
+            if (rPwdParam.Value == null)
+                rPwdParam.Value = DBNull.Value;
+
+            var procResultParam = new SqlParameter { ParameterName = "@procResult", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Output };
+            var procResultData = Database.SqlQuery<ViewerValidReturnModel>("EXEC @procResult = [dbo].[ViewerValid] @r_id, @r_pwd", rIdParam, rPwdParam, procResultParam).ToList();
+
+            procResult = (int) procResultParam.Value;
+            return procResultData;
+        }
+
     }
 
     // ************************************************************************
@@ -169,6 +296,57 @@ namespace Model
         }
         
         // Stored Procedures
+        public int Borrow1(string bId, string rId, int? c)
+        {
+ 
+            return 0;
+        }
+
+        public List<ManagerValidReturnModel> ManagerValid(string mId, string mPwd)
+        {
+            int procResult;
+            return ManagerValid(mId, mPwd, out procResult);
+        }
+
+        public List<ManagerValidReturnModel> ManagerValid(string mId, string mPwd, out int procResult)
+        {
+
+            procResult = 0;
+            return new List<ManagerValidReturnModel>();
+        }
+
+        public int Return1(string bId, string rId, int? c)
+        {
+ 
+            return 0;
+        }
+
+        public List<SearchReturnModel> Search(string bId, string bName, string author, string publisher)
+        {
+            int procResult;
+            return Search(bId, bName, author, publisher, out procResult);
+        }
+
+        public List<SearchReturnModel> Search(string bId, string bName, string author, string publisher, out int procResult)
+        {
+
+            procResult = 0;
+            return new List<SearchReturnModel>();
+        }
+
+        public List<ViewerValidReturnModel> ViewerValid(string rId, string rPwd)
+        {
+            int procResult;
+            return ViewerValid(rId, rPwd, out procResult);
+        }
+
+        public List<ViewerValidReturnModel> ViewerValid(string rId, string rPwd, out int procResult)
+        {
+
+            procResult = 0;
+            return new List<ViewerValidReturnModel>();
+        }
+
     }
 
     // ************************************************************************
@@ -503,6 +681,25 @@ namespace Model
 
     // ************************************************************************
     // Stored procedure return models
+
+    public class ManagerValidReturnModel
+    {
+        public Int32? Column1 { get; set; }
+    }
+
+    public class SearchReturnModel
+    {
+        public String b_id { get; set; }
+        public String b_name { get; set; }
+        public String author { get; set; }
+        public String publisher { get; set; }
+        public Int32 amount { get; set; }
+    }
+
+    public class ViewerValidReturnModel
+    {
+        public Int32? Column1 { get; set; }
+    }
 
 }
 // </auto-generated>
