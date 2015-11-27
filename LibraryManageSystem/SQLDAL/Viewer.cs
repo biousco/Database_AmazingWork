@@ -25,17 +25,17 @@ namespace SQLDAL
 
             //SqlDataReader reader = SqlDbHelper.ExecuteReader(strSql, CommandType.StoredProcedure, parameters);
 
-            string connstr = "Data Source=BIOUSCO\SQLEXPRESS;Initial Catalog=LibraryManage;Integrated Security=True";
-            using (SqlConnection conn = connstr)
-            {
-                SqlCommand cmd = new SqlCommand(); //创建command对象
-                cmd.Connection = "Data Source=BIOUSCO\SQLEXPRESS;Initial Catalog=LibraryManage;Integrated Security=True";
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "ViewerValid";
-                conn.Open();
+            //string connstr = "Data Source=BIOUSCO\SQLEXPRESS;Initial Catalog=LibraryManage;Integrated Security=True";
+            //using (SqlConnection conn = new SqlConnection(connstr))
+            //{
+            //    SqlCommand cmd = new SqlCommand(); //创建command对象
+            //    cmd.Connection = "Data Source=BIOUSCO\SQLEXPRESS;Initial Catalog=LibraryManage;Integrated Security=True";
+            //    cmd.CommandType = CommandType.StoredProcedure;
+            //    cmd.CommandText = "ViewerValid";
+            //    conn.Open();
 
-                SqlDataReader reader = cmd.ExecuteReader();
-            }
+            //    SqlDataReader reader = cmd.ExecuteReader();
+            //}
 
 
             
