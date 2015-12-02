@@ -38,7 +38,7 @@ namespace LibraryManageSystem
             Hashtable type_str = new Hashtable();
             type_str.Add("书籍编号", "b_id");
             type_str.Add("书籍名称", "b_name");
-            type_str.Add("书籍作者", "b_author");
+            type_str.Add("书籍作者", "author");
             if (searchType.Text != "")
             {
                 sqlStr = (string)type_str[searchType.Text] + " like '%" + searchStr.Text.Trim() + "%'";
