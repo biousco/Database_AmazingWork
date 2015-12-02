@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,7 +23,15 @@ namespace LibraryManageSystem
         public void Fill()
         {
             string sqlStr = "";
-
+            Hashtable type_str = new Hashtable();
+            type_str.Add("书籍编号", "b_id");
+            type_str.Add("书籍名称", "b_name");
+            type_str.Add("书籍作者", "b_author");
+            if (searchType.Text != "")
+            {
+                sqlStr = (string)type_str[searchType.Text] + " like '%" + searchStr.Text.Trim() + "%'";
+            }
+            
             dgvBookList.DataSource = bll.GetList(sqlStr);
         }
 
@@ -49,6 +58,11 @@ namespace LibraryManageSystem
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void search_btn_click(object sender, EventArgs e)
+        {
+            Fill();
         }
     }
 }

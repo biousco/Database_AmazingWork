@@ -20,7 +20,7 @@ namespace SQLDAL
 
 
             if (sqlStr.Trim() != "")
-                strSql.Append(" and " + sqlStr);
+                strSql.Append(" where " + sqlStr);
             strSql.Append(" order by b_id desc");
 
             return SqlDbHelper.ExecuteDataTable(strSql.ToString());
