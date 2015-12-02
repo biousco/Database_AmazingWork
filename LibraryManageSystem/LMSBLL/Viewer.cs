@@ -9,7 +9,7 @@ namespace LMSBLL
 {
     public class Viewer
     {
-        IDAL.IViewer viewer = DALFactory.DataAccessFactory.CreateViewer();
+        IDAL.IViewer viewer = DataAccessFactory.CreateViewer();
 
         //登录
         public bool Login(string user_id, string user_pwd)

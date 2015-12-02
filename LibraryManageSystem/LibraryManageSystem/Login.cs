@@ -43,6 +43,9 @@ namespace LibraryManageSystem
                 if (viewer.Login(userName, password))
                 {
                     MessageBox.Show("成功登陆！");
+                    this.Hide();
+                    Main f = new Main();
+                    f.ShowDialog();
                 }
                 else
                 {
