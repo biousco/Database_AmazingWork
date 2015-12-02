@@ -18,6 +18,18 @@ namespace LibraryManageSystem
         {
             InitializeComponent();
             Fill();
+            InitColName();
+        }
+
+        public void InitColName ()
+        {
+            String [] ColName = { "书籍编号", "书籍名称", "书籍作者", "出版社", "现存数" };
+            for(int i = 0; i < dgvBookList.Columns.Count; i++)
+            {
+                dgvBookList.Columns[i].HeaderText = ColName[i];
+            }
+            
+
         }
 
         public void Fill()
