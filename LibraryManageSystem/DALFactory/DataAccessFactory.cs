@@ -19,5 +19,11 @@ namespace DALFactory
             return (IViewer)Assembly.Load(AssemblyName).CreateInstance(className);
             //利用反射机制，创建对象，并进行类型转换，把子类转换成父类接口类型；
         }
+
+        public static IBook CreateBook()
+        {
+            string className = AssemblyName + ".Book";
+            return (IBook)Assembly.Load(AssemblyName).CreateInstance(className);
+        }
     }
 }

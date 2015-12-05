@@ -13,6 +13,7 @@ namespace SQLDAL
     public class Viewer : IViewer
     {
         public Viewer() { }
+
         public bool Login(string user_id, string user_pwd)
         {
             //string strSql = "ViewerValid";
@@ -25,21 +26,25 @@ namespace SQLDAL
 
             //SqlDataReader reader = SqlDbHelper.ExecuteReader(strSql, CommandType.StoredProcedure, parameters);
 
-            string connstr = "Data Source=BIOUSCO\SQLEXPRESS;Initial Catalog=LibraryManage;Integrated Security=True";
-            using (SqlConnection conn = connstr)
-            {
-                SqlCommand cmd = new SqlCommand(); //创建command对象
-                cmd.Connection = "Data Source=BIOUSCO\SQLEXPRESS;Initial Catalog=LibraryManage;Integrated Security=True";
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "ViewerValid";
-                conn.Open();
+            string connstr = "Data Source=.;Initial Catalog=LibraryManage;Integrated Security=True";
+                string strSql = "select count(1) from [Viewer] where r_id=@r_id and r_pwd=@r_pwd ";
+                SqlParameter[] parameters ={
+                           new SqlParameter ("@r_id",SqlDbType .VarChar,50),
+                           new SqlParameter ("@r_pwd",SqlDbType .VarChar ,50)
+                                      };
+                parameters[0].Value = user_id;
+                parameters[1].Value = user_pwd;
 
-                SqlDataReader reader = cmd.ExecuteReader();
-            }
+                int n = Convert.ToInt32(SqlDbHelper.ExecuteScalar(strSql, CommandType.Text, parameters));
+                if (n == 1)
+                    return true;
+                else
+                    return false;
 
 
-            
-            return true;
+
+
+            //return true;
 
 
         }

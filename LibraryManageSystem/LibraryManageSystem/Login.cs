@@ -42,7 +42,9 @@ namespace LibraryManageSystem
                 LMSBLL.Viewer viewer = new LMSBLL.Viewer();
                 if (viewer.Login(userName, password))
                 {
-                    
+                    this.Hide();
+                    Main f = new Main();
+                    f.ShowDialog();
                 }
                 else
                 {

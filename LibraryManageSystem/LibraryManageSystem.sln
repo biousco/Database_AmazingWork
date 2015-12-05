@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryManageSystem", "LibraryManageSystem\LibraryManageSystem.csproj", "{ED5EB527-CD7E-4ACD-B564-015B6F0FE706}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Common\Model.csproj", "{DFCDC5F5-CCC5-4B96-A10B-A356472E523F}"
@@ -14,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALFactory", "DALFactory\DALFactory.csproj", "{3078D29D-1F1D-4684-9CD7-AB293DB1B1B4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLDAL", "SQLDAL\SQLDAL.csproj", "{191ECD1C-F755-4C0D-8159-01DFC4C0AC01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMSTest", "LMSTest\LMSTest.csproj", "{5F6706DF-B4F3-45B6-9C89-233479415415}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +45,10 @@ Global
 		{191ECD1C-F755-4C0D-8159-01DFC4C0AC01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{191ECD1C-F755-4C0D-8159-01DFC4C0AC01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{191ECD1C-F755-4C0D-8159-01DFC4C0AC01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F6706DF-B4F3-45B6-9C89-233479415415}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F6706DF-B4F3-45B6-9C89-233479415415}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F6706DF-B4F3-45B6-9C89-233479415415}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F6706DF-B4F3-45B6-9C89-233479415415}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
