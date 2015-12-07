@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace SQLDAL
 {
-    class Book : IBook
+    public class Book : IBook
     {
         public Book() { }
 
@@ -92,6 +92,43 @@ namespace SQLDAL
                 model.Amount = dt.Rows[0].ItemArray[4].ToString();
             }
             return model;
+        }
+
+        /// <summary>
+        /// 归还书籍
+        /// </summary>
+        /// <param name="viewer"></param>
+        /// <param name="book"></param>
+        /// <returns></returns>
+        public bool ReturnBook(Model.Viewer viewer, Model.Book book, Model.Manager manager)
+        {
+            string procedureName = "ReturnBook";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter ("@b_id",SqlDbType.VarChar,20),
+                new SqlParameter ("@r_id",SqlDbType.VarChar,20),
+                new SqlParameter ("@amount",SqlDbType.Int),
+                new SqlParameter ("@return_date",SqlDbType.Date),
+                new SqlParameter ("@delaytime",SqlDbType.Int),
+                new SqlParameter ("@m_id",SqlDbType.VarChar,20),
+            };
+            parameters[0].Value = book.Id;
+            parameters[1].Value = viewer.Id;
+            parameters[2].Value = 1;
+            parameters[3].Value = new DateTime();
+            parameters[4].Value = 0;
+            parameters[5].Value = manager.Id;
+            int i;
+            i = SqlDbHelper.ExecuteNonQueryBySP(procedureName, CommandType.StoredProcedure, parameters);
+
+            if (i == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

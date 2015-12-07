@@ -117,6 +117,7 @@
             this.returnBtn.TabIndex = 7;
             this.returnBtn.Text = "归还";
             this.returnBtn.UseVisualStyleBackColor = true;
+            this.returnBtn.Click += new System.EventHandler(this.returnBtn_Click);
             // 
             // WelcomeLabel
             // 

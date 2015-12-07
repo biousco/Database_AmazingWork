@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5F6706DF-B4F3-45B6-9C89-233479415415}</ProjectGuid>
+    <ProjectGuid>{2BB7B4CE-FE07-4C7C-8440-080FE21CC7B5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LMSTest</RootNamespace>
-    <AssemblyName>LMSTest</AssemblyName>
+    <RootNamespace>SQLDALTests</RootNamespace>
+    <AssemblyName>SQLDALTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -25,6 +25,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -36,8 +38,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Reflection.Context" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -52,32 +52,16 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="LoginTest.cs" />
+    <Compile Include="BookTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DALFactory\DALFactory.csproj">
-      <Project>{3078d29d-1f1d-4684-9cd7-ab293db1b1b4}</Project>
-      <Name>DALFactory</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IDAL\IDAL.csproj">
-      <Project>{52f74c15-181e-4411-b474-9a407390eca6}</Project>
-      <Name>IDAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LibraryManageSystem\LibraryManageSystem.csproj">
-      <Project>{ed5eb527-cd7e-4acd-b564-015b6f0fe706}</Project>
-      <Name>LibraryManageSystem</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LMSBLL\LMSBLL.csproj">
-      <Project>{9adff7f6-5442-43b1-9291-ee4d8baa6231}</Project>
-      <Name>LMSBLL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{5f7f1e1d-a0be-4c15-b8f4-7568414ab4d8}</Project>
       <Name>Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\SQLDAL\SQLDAL.csproj">
-      <Project>{191ecd1c-f755-4c0d-8159-01dfc4c0ac01}</Project>
+      <Project>{191ECD1C-F755-4C0D-8159-01DFC4C0AC01}</Project>
       <Name>SQLDAL</Name>
     </ProjectReference>
   </ItemGroup>

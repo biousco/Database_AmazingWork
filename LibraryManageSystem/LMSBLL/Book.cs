@@ -29,5 +29,10 @@ namespace LMSBLL
         {
             return book.Borrow(b_book, viewer, manager);
         }
+
+        public bool ReturnBook(Model.Viewer viewer, Model.Book b_book, Model.Manager manager)
+        {
+            return book.ReturnBook(viewer, b_book, manager);
+        }
     }
 }

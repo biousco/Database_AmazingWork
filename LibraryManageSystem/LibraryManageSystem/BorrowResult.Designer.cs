@@ -28,62 +28,62 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.BookNameLabel = new System.Windows.Forms.Label();
+            this.BookNumLabel = new System.Windows.Forms.Label();
+            this.UserNoLabel = new System.Windows.Forms.Label();
+            this.NameLabel = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.confirmBtn = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.StartDateLabel = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.TotalDateLabel = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label9
+            // BookNameLabel
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label9.Location = new System.Drawing.Point(293, 194);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(122, 21);
-            this.label9.TabIndex = 23;
-            this.label9.Text = "法老王的帝国啊";
+            this.BookNameLabel.AutoSize = true;
+            this.BookNameLabel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BookNameLabel.Location = new System.Drawing.Point(293, 194);
+            this.BookNameLabel.Name = "BookNameLabel";
+            this.BookNameLabel.Size = new System.Drawing.Size(122, 21);
+            this.BookNameLabel.TabIndex = 23;
+            this.BookNameLabel.Text = "法老王的帝国啊";
             // 
-            // label8
+            // BookNumLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(293, 232);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(213, 21);
-            this.label8.TabIndex = 22;
-            this.label8.Text = "CN-DDFDSF23214234R234";
+            this.BookNumLabel.AutoSize = true;
+            this.BookNumLabel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BookNumLabel.Location = new System.Drawing.Point(293, 232);
+            this.BookNumLabel.Name = "BookNumLabel";
+            this.BookNumLabel.Size = new System.Drawing.Size(213, 21);
+            this.BookNumLabel.TabIndex = 22;
+            this.BookNumLabel.Text = "CN-DDFDSF23214234R234";
             // 
-            // label4
+            // UserNoLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(293, 155);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 21);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "20131003612";
+            this.UserNoLabel.AutoSize = true;
+            this.UserNoLabel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.UserNoLabel.Location = new System.Drawing.Point(293, 155);
+            this.UserNoLabel.Name = "UserNoLabel";
+            this.UserNoLabel.Size = new System.Drawing.Size(109, 21);
+            this.UserNoLabel.TabIndex = 21;
+            this.UserNoLabel.Text = "20131003612";
             // 
-            // label3
+            // NameLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(293, 114);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 21);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "林浩笙";
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.NameLabel.Location = new System.Drawing.Point(293, 114);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(58, 21);
+            this.NameLabel.TabIndex = 20;
+            this.NameLabel.Text = "林浩笙";
             // 
             // button2
             // 
@@ -95,16 +95,16 @@
             this.button2.Text = "取消";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // confirmBtn
             // 
-            this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(160, 351);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 46);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "确认归还";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.confirmBtn.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.confirmBtn.Location = new System.Drawing.Point(160, 351);
+            this.confirmBtn.Name = "confirmBtn";
+            this.confirmBtn.Size = new System.Drawing.Size(131, 46);
+            this.confirmBtn.TabIndex = 18;
+            this.confirmBtn.Text = "确认归还";
+            this.confirmBtn.UseVisualStyleBackColor = true;
+            this.confirmBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // label7
             // 
@@ -165,15 +165,15 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "借阅详情";
             // 
-            // label10
+            // StartDateLabel
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.Location = new System.Drawing.Point(293, 268);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(96, 21);
-            this.label10.TabIndex = 25;
-            this.label10.Text = "2015-10-11";
+            this.StartDateLabel.AutoSize = true;
+            this.StartDateLabel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.StartDateLabel.Location = new System.Drawing.Point(293, 268);
+            this.StartDateLabel.Name = "StartDateLabel";
+            this.StartDateLabel.Size = new System.Drawing.Size(96, 21);
+            this.StartDateLabel.TabIndex = 25;
+            this.StartDateLabel.Text = "2015-10-11";
             // 
             // label11
             // 
@@ -187,15 +187,15 @@
             this.label11.TabIndex = 24;
             this.label11.Text = "借阅开始日期：";
             // 
-            // label12
+            // TotalDateLabel
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.Location = new System.Drawing.Point(293, 308);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 21);
-            this.label12.TabIndex = 27;
-            this.label12.Text = "52天";
+            this.TotalDateLabel.AutoSize = true;
+            this.TotalDateLabel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TotalDateLabel.Location = new System.Drawing.Point(293, 308);
+            this.TotalDateLabel.Name = "TotalDateLabel";
+            this.TotalDateLabel.Size = new System.Drawing.Size(44, 21);
+            this.TotalDateLabel.TabIndex = 27;
+            this.TotalDateLabel.Text = "52天";
             // 
             // label13
             // 
@@ -214,16 +214,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(658, 449);
-            this.Controls.Add(this.label12);
+            this.Controls.Add(this.TotalDateLabel);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.StartDateLabel);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.BookNameLabel);
+            this.Controls.Add(this.BookNumLabel);
+            this.Controls.Add(this.UserNoLabel);
+            this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.confirmBtn);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -231,6 +231,7 @@
             this.Controls.Add(this.label1);
             this.Name = "BorrowResult";
             this.Text = "BorrowResult";
+            this.Load += new System.EventHandler(this.BorrowResult_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,20 +239,20 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label BookNameLabel;
+        private System.Windows.Forms.Label BookNumLabel;
+        private System.Windows.Forms.Label UserNoLabel;
+        private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button confirmBtn;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label StartDateLabel;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label TotalDateLabel;
         private System.Windows.Forms.Label label13;
     }
 }
