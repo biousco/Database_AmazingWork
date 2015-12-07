@@ -11,27 +11,12 @@ namespace LMSTest
     [TestClass]
     public class LoginTest
     {
-        private static readonly string AssemblyName = ConfigurationManager.AppSettings["DAL"];
+
         
         [TestMethod]
-        public void TestMethod1()
+        public void Viewer()
         {
-            //string className = AssemblyName + ".Viewer";
-
-           // if (AssemblyName== null) throw new ArgumentNullException();
-            //if (className == null) throw new ArgumentNullException();
-
-            try
-            {
-
-                //IDAL.IViewer target = (IViewer)Assembly.Load("SQLDAL").CreateInstance("SQLDAL.Viewer");
-            }
-            catch (ArgumentNullException ex)
-            {
-                Console.WriteLine(ex.Message);
-
-            }
-            IDAL.IViewer target = DataAccessFactory.CreateViewer();
+            IViewer target = DataAccessFactory.CreateViewer();
 
             string userName = "s001";    //用例
             string userPassword = "111111";

@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace SQLDAL
 {
-    class Book : IBook
+    public class Book : IBook
     {
         public Book() { }
 

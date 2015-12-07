@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMSTest", "LMSTest\LMSTest.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{5F7F1E1D-A0BE-4C15-B8F4-7568414AB4D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLDALTests", "SQLDALTests\SQLDALTests.csproj", "{2BB7B4CE-FE07-4C7C-8440-080FE21CC7B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{5F7F1E1D-A0BE-4C15-B8F4-7568414AB4D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F7F1E1D-A0BE-4C15-B8F4-7568414AB4D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F7F1E1D-A0BE-4C15-B8F4-7568414AB4D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BB7B4CE-FE07-4C7C-8440-080FE21CC7B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BB7B4CE-FE07-4C7C-8440-080FE21CC7B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BB7B4CE-FE07-4C7C-8440-080FE21CC7B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BB7B4CE-FE07-4C7C-8440-080FE21CC7B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
