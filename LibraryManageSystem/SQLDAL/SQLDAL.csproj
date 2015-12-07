@@ -45,6 +45,7 @@
     <Compile Include="Book.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlDbHelper.cs" />
+    <Compile Include="Manager.cs" />
     <Compile Include="Viewer.cs" />
   </ItemGroup>
   <ItemGroup>

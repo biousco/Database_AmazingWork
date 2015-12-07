@@ -53,10 +53,23 @@ namespace LibraryManageSystem
                 }
                 else
                 {
-                    MessageBox.Show("用户名或密码错误，请重新输入！", "错误");
-                    txtUserName.Text = "";
-                    txtPassword.Text = "";
-                    txtUserName.Focus();
+                    LMSBLL.Manager manager = new LMSBLL.Manager();
+                    if(manager.Login(userid,password))
+                    {
+                        string userName = viewer.GetViewerName(userid);
+                        UserHelper.userName = userName;
+                        UserHelper.userId = userid;
+                        UserHelper.IDENTITY = 1;
+                        this.Hide();
+                        Main f = new Main();
+                        f.ShowDialog();
+                    } else
+                    {
+                        MessageBox.Show("用户名或密码错误，请重新输入！", "错误");
+                        txtUserName.Text = "";
+                        txtPassword.Text = "";
+                        txtUserName.Focus();
+                    }
                 }
             }
         }
