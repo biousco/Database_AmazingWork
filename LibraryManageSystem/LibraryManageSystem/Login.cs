@@ -56,7 +56,7 @@ namespace LibraryManageSystem
                     LMSBLL.Manager manager = new LMSBLL.Manager();
                     if(manager.Login(userid,password))
                     {
-                        string userName = viewer.GetViewerName(userid);
+                        string userName = manager.GetViewerName(userid);
                         UserHelper.userName = userName;
                         UserHelper.userId = userid;
                         UserHelper.IDENTITY = 1;

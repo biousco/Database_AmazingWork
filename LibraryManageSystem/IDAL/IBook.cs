@@ -11,5 +11,6 @@ namespace IDAL
     {
         DataTable GetList(string sqlStr);
         Model.Book GetSingleBook(string book_id);
+        bool Borrow(Model.Book book, Model.Viewer viewer, Model.Manager manager);
     };
 }

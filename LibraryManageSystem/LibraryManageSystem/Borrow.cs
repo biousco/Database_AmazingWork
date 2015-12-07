@@ -13,6 +13,9 @@ namespace LibraryManageSystem
     public partial class Borrow : Form
     {
         LMSBLL.Book Book = new LMSBLL.Book();
+        Model.Viewer viewer = new Model.Viewer();
+        Model.Manager manager = new Model.Manager();
+        Model.Book book = new Model.Book();
         public Borrow()
         {
             InitializeComponent();
@@ -21,10 +24,10 @@ namespace LibraryManageSystem
 
         public void renderData ()
         {
-            userNameLabel.Text = UserHelper._userName;
-            userIdLabel.Text = UserHelper._userId;
-            BookNameLabel.Text = BookHelper.book_name;
-            BookIdLabel.Text = BookHelper.book_id;
+            userNameLabel.Text = viewer.Name = UserHelper._userName;
+            userIdLabel.Text = viewer.Id = UserHelper._userId;
+            BookNameLabel.Text = book.Name = BookHelper.book_name;
+            BookIdLabel.Text = book.Id = BookHelper.book_id;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -34,7 +37,16 @@ namespace LibraryManageSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            manager.Name = UserHelper.userName;
+            manager.Id = UserHelper.userId;
+            bool result = Book.Borrow(book, viewer, manager);
+            if(result == true)
+            {
+                MessageBox.Show("借阅成功！");
+            } else
+            {
+                MessageBox.Show("借阅失败！");
+            }
         }
 
         private void Borrow_Load(object sender, EventArgs e)
@@ -45,11 +57,6 @@ namespace LibraryManageSystem
         private void borrowUserNoINput_TextChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void borrowUserNoINput_lostFucus(object sender, EventArgs e)
-        {
-            MessageBox.Show("用户名或密码错误，请重新输入！", "错误");
         }
     }
 }

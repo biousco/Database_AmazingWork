@@ -34,7 +34,7 @@ namespace SQLDAL
 
         public Model.Manager GetManagerName(string r_id)
         {
-            string strSql = "select r_name from [Manager] where m_id=@r_id";
+            string strSql = "select m_name from [Manager] where m_id=@r_id";
             SqlParameter[] parameters ={
                            new SqlParameter ("@r_id",SqlDbType .VarChar,50),
                                       };

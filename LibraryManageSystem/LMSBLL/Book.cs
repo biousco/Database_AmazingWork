@@ -23,5 +23,11 @@ namespace LMSBLL
         {
             return book.GetSingleBook(book_id);
         }
+
+        //借阅
+        public bool Borrow(Model.Book b_book, Model.Viewer viewer, Model.Manager manager)
+        {
+            return book.Borrow(b_book, viewer, manager);
+        }
     }
 }

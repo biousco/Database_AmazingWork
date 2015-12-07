@@ -82,6 +82,28 @@ namespace SQLDAL
             return command.ExecuteReader(CommandBehavior.CloseConnection);
         }
 
+        public static SqlDataReader ExecuteReader(string commandText,
+       CommandType commandType, SqlParameter[] parameters, SqlParameter returnParameter)
+        {
+            SqlConnection connection = new SqlConnection(connString);
+            SqlCommand command = new SqlCommand(commandText, connection);
+            command.CommandType = commandType;
+            returnParameter.Direction = ParameterDirection.ReturnValue;
+            if (parameters != null)
+            {
+                foreach (SqlParameter parameter in parameters)
+                {
+                    command.Parameters.Add(parameter);
+                }
+            }
+            if (returnParameter != null)
+            {
+                command.Parameters.Add(returnParameter);
+            }
+            connection.Open();
+            return command.ExecuteReader(CommandBehavior.CloseConnection);
+        }
+
         public static SqlDataReader ExecuteReader(string commandText)
         {
             return ExecuteReader(commandText,
@@ -153,6 +175,43 @@ namespace SQLDAL
                     }
                     connection.Open();
                     count = command.ExecuteNonQuery();
+                }
+            }
+            return count;
+        }
+
+        /// <summary>
+        /// 给存储过程用的
+        /// </summary>
+        /// <param name="commandText"></param>
+        /// <param name="commandType"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        public static int ExecuteNonQueryBySP(string commandText,
+                CommandType commandType, SqlParameter[] parameters)
+        {
+            int count = 0;
+            using (SqlConnection connection = new SqlConnection(connString))
+            {
+                using (SqlCommand command = new SqlCommand(commandText, connection))
+                {
+                    //设置command的CommandType为指定的CommandType
+                    command.CommandType = commandType;
+                    //如果同时传入了参数，则添加这些参数
+                    if (parameters != null)
+                    {
+                        foreach (SqlParameter parameter in parameters)
+                        {
+                            command.Parameters.Add(parameter);
+                        }
+                    }
+
+                    SqlParameter returnParameters = command.Parameters.Add("ReturnValue", SqlDbType.Int);
+                    returnParameters.Direction = ParameterDirection.ReturnValue;
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    count = (int)returnParameters.Value;
                 }
             }
             return count;
