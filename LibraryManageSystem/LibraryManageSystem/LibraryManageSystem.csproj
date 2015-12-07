@@ -79,6 +79,7 @@
     <Compile Include="Return.Designer.cs">
       <DependentUpon>Return.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserHelper.cs" />
     <EmbeddedResource Include="Borrow.resx">
       <DependentUpon>Borrow.cs</DependentUpon>
     </EmbeddedResource>
@@ -123,6 +124,10 @@
     <ProjectReference Include="..\LMSBLL\LMSBLL.csproj">
       <Project>{9adff7f6-5442-43b1-9291-ee4d8baa6231}</Project>
       <Name>LMSBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{5F7F1E1D-A0BE-4C15-B8F4-7568414AB4D8}</Project>
+      <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

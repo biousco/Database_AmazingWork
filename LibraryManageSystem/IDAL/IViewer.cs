@@ -9,6 +9,7 @@ namespace IDAL
     public interface IViewer
     {
         bool Login(string user_id, string user_pwd);
+        Model.Viewer GetViewerName(string r_id);
+    };
 
-    }
 }

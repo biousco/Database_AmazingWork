@@ -48,13 +48,13 @@
     <Compile Include="Viewer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Model.csproj">
-      <Project>{dfcdc5f5-ccc5-4b96-a10b-a356472e523f}</Project>
-      <Name>Model</Name>
-    </ProjectReference>
     <ProjectReference Include="..\IDAL\IDAL.csproj">
       <Project>{52f74c15-181e-4411-b474-9a407390eca6}</Project>
       <Name>IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{5f7f1e1d-a0be-4c15-b8f4-7568414ab4d8}</Project>
+      <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

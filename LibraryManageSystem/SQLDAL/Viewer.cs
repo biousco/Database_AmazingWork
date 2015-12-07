@@ -16,17 +16,6 @@ namespace SQLDAL
 
         public bool Login(string user_id, string user_pwd)
         {
-            //string strSql = "ViewerValid";
-            //SqlParameter[] parameters = {
-            //    new SqlParameter ("@r_id",System.Data.SqlDbType.VarChar,50),
-            //    new SqlParameter ("@r_pwd", System.Data.SqlDbType.VarChar, 50)
-            //};
-            //parameters[0].Value = user_id;
-            //parameters[1].Value = user_pwd;
-
-            //SqlDataReader reader = SqlDbHelper.ExecuteReader(strSql, CommandType.StoredProcedure, parameters);
-
-            string connstr = "Data Source=.;Initial Catalog=LibraryManage;Integrated Security=True";
                 string strSql = "select count(1) from [Viewer] where r_id=@r_id and r_pwd=@r_pwd ";
                 SqlParameter[] parameters ={
                            new SqlParameter ("@r_id",SqlDbType .VarChar,50),
@@ -41,11 +30,27 @@ namespace SQLDAL
                 else
                     return false;
 
+        }
 
+        public Model.Viewer GetViewerName(string r_id)
+        {
+            string strSql = "select r_name from [Viewer] where r_id=@r_id";
+            SqlParameter[] parameters ={
+                           new SqlParameter ("@r_id",SqlDbType .VarChar,50),
+                                      };
+            parameters[0].Value = r_id;
 
-
-            //return true;
-
+            Model.Viewer model = new Model.Viewer();
+            DataTable dt = SqlDbHelper.ExecuteDataTable(strSql.ToString(),
+                             CommandType.Text, parameters);
+            if(dt.Rows.Count > 0)
+            {
+                if (dt.Rows[0]["r_name"] != null && dt.Rows[0]["r_name"].ToString() != "")
+                {
+                    model.Name = dt.Rows[0]["r_name"].ToString();
+                }
+            }
+            return model;
 
         }
     }

@@ -12,10 +12,16 @@ namespace LMSBLL
     {
         IDAL.IBook book = DataAccessFactory.CreateBook();
 
-        //登录
+        //书籍列表
         public DataTable GetList(string strWhere)
         {
             return book.GetList(strWhere);
+        }
+
+        //单条书籍记录
+        public Model.Book GetSingleBook(string book_id)
+        {
+            return book.GetSingleBook(book_id);
         }
     }
 }

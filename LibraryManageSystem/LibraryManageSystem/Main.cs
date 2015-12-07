@@ -76,5 +76,18 @@ namespace LibraryManageSystem
         {
             Fill();
         }
+
+        /// <summary>
+        /// 弹出借阅详情
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int index = dgvBookList.CurrentRow.Index;
+            string book_id = dgvBookList.Rows[index].Cells["b_id"].Value.ToString();
+            Borrow form = new Borrow(book_id);
+            form.ShowDialog();
+        }
     }
 }

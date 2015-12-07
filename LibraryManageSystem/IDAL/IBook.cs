@@ -10,5 +10,6 @@ namespace IDAL
     public interface IBook
     {
         DataTable GetList(string sqlStr);
-    }
+        Model.Book GetSingleBook(string book_id);
+    };
 }

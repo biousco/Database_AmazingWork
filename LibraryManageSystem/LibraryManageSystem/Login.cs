@@ -29,9 +29,9 @@ namespace LibraryManageSystem
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string userName = txtUserName.Text.Trim();
+            string userid = txtUserName.Text.Trim();
             string password = txtPassword.Text.Trim();
-            if (userName == "" || password == "")
+            if (userid == "" || password == "")
             {
                 MessageBox.Show("用户名或密码不能为空！");
                 txtUserName.Focus();
@@ -39,9 +39,14 @@ namespace LibraryManageSystem
             }
             else
             {
+                //先判断是不是游客登陆
                 LMSBLL.Viewer viewer = new LMSBLL.Viewer();
-                if (viewer.Login(userName, password))
+                if (viewer.Login(userid, password))
                 {
+                    string userName = viewer.GetViewerName(userid);
+                    UserHelper.userName = userName;
+                    UserHelper.userId = userid;
+                    UserHelper.IDENTITY = 0;
                     this.Hide();
                     Main f = new Main();
                     f.ShowDialog();

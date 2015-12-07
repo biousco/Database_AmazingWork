@@ -16,5 +16,12 @@ namespace LMSBLL
         {
             return viewer.Login(user_id, user_pwd);
         }
+
+        //得到用户名
+        public string GetViewerName(string user_id)
+        {
+            Model.Viewer model =  viewer.GetViewerName(user_id);
+            return model.Name;
+        }
     }
 }

@@ -33,8 +33,8 @@
             this.searchStr = new System.Windows.Forms.TextBox();
             this.search_btn = new System.Windows.Forms.Button();
             this.dgvBookList = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.borrowBtn = new System.Windows.Forms.Button();
+            this.returnBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,33 +96,34 @@
             this.dgvBookList.TabIndex = 4;
             this.dgvBookList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // button2
+            // borrowBtn
             // 
-            this.button2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(77, 361);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 39);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "借阅";
-            this.button2.UseVisualStyleBackColor = true;
+            this.borrowBtn.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.borrowBtn.Location = new System.Drawing.Point(77, 361);
+            this.borrowBtn.Name = "borrowBtn";
+            this.borrowBtn.Size = new System.Drawing.Size(94, 39);
+            this.borrowBtn.TabIndex = 5;
+            this.borrowBtn.Text = "借阅";
+            this.borrowBtn.UseVisualStyleBackColor = true;
+            this.borrowBtn.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button4
+            // returnBtn
             // 
-            this.button4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button4.Location = new System.Drawing.Point(402, 361);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(94, 39);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "归还";
-            this.button4.UseVisualStyleBackColor = true;
+            this.returnBtn.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.returnBtn.Location = new System.Drawing.Point(402, 361);
+            this.returnBtn.Name = "returnBtn";
+            this.returnBtn.Size = new System.Drawing.Size(94, 39);
+            this.returnBtn.TabIndex = 7;
+            this.returnBtn.Text = "归还";
+            this.returnBtn.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 439);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.returnBtn);
+            this.Controls.Add(this.borrowBtn);
             this.Controls.Add(this.dgvBookList);
             this.Controls.Add(this.search_btn);
             this.Controls.Add(this.searchStr);
@@ -143,7 +144,7 @@
         private System.Windows.Forms.TextBox searchStr;
         private System.Windows.Forms.Button search_btn;
         private System.Windows.Forms.DataGridView dgvBookList;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button borrowBtn;
+        private System.Windows.Forms.Button returnBtn;
     }
 }

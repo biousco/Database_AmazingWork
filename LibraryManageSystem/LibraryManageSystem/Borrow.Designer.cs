@@ -35,10 +35,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.userNameLabel = new System.Windows.Forms.Label();
+            this.userIdLabel = new System.Windows.Forms.Label();
+            this.BookIdLabel = new System.Windows.Forms.Label();
+            this.BookNameLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -120,51 +120,51 @@
             this.button2.Text = "取消";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // userNameLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(249, 93);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 20);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "林浩笙";
+            this.userNameLabel.AutoSize = true;
+            this.userNameLabel.Location = new System.Drawing.Point(249, 93);
+            this.userNameLabel.Name = "userNameLabel";
+            this.userNameLabel.Size = new System.Drawing.Size(51, 20);
+            this.userNameLabel.TabIndex = 9;
+            this.userNameLabel.Text = "林浩笙";
             // 
-            // label4
+            // userIdLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(249, 134);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 20);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "20131003612";
+            this.userIdLabel.AutoSize = true;
+            this.userIdLabel.Location = new System.Drawing.Point(249, 134);
+            this.userIdLabel.Name = "userIdLabel";
+            this.userIdLabel.Size = new System.Drawing.Size(97, 20);
+            this.userIdLabel.TabIndex = 10;
+            this.userIdLabel.Text = "20131003612";
             // 
-            // label8
+            // BookIdLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(249, 211);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(187, 20);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "CN-DDFDSF23214234R234";
+            this.BookIdLabel.AutoSize = true;
+            this.BookIdLabel.Location = new System.Drawing.Point(249, 211);
+            this.BookIdLabel.Name = "BookIdLabel";
+            this.BookIdLabel.Size = new System.Drawing.Size(187, 20);
+            this.BookIdLabel.TabIndex = 11;
+            this.BookIdLabel.Text = "CN-DDFDSF23214234R234";
             // 
-            // label9
+            // BookNameLabel
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(249, 173);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(107, 20);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "法老王的帝国啊";
+            this.BookNameLabel.AutoSize = true;
+            this.BookNameLabel.Location = new System.Drawing.Point(249, 173);
+            this.BookNameLabel.Name = "BookNameLabel";
+            this.BookNameLabel.Size = new System.Drawing.Size(107, 20);
+            this.BookNameLabel.TabIndex = 12;
+            this.BookNameLabel.Text = "法老王的帝国啊";
             // 
             // Borrow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 380);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.BookNameLabel);
+            this.Controls.Add(this.BookIdLabel);
+            this.Controls.Add(this.userIdLabel);
+            this.Controls.Add(this.userNameLabel);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
@@ -176,6 +176,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Borrow";
             this.Text = "Borrow";
+            this.Load += new System.EventHandler(this.Borrow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,9 +191,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label userNameLabel;
+        private System.Windows.Forms.Label userIdLabel;
+        private System.Windows.Forms.Label BookIdLabel;
+        private System.Windows.Forms.Label BookNameLabel;
     }
 }
