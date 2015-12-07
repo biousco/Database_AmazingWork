@@ -116,5 +116,11 @@ namespace LibraryManageSystem
             BorrowDialog form = new BorrowDialog(book_id);
             form.ShowDialog();
         }
+
+        private void returnBtn_Click(object sender, EventArgs e)
+        {
+            Return form = new Return();
+            form.ShowDialog();
+        }
     }
 }

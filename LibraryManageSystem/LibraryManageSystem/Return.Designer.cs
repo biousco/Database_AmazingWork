@@ -30,10 +30,10 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.returnUserNoForm = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.returnBookNoForm = new System.Windows.Forms.TextBox();
+            this.SearchBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -59,12 +59,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "借阅人学号：";
             // 
-            // textBox1
+            // returnUserNoForm
             // 
-            this.textBox1.Location = new System.Drawing.Point(220, 97);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(170, 21);
-            this.textBox1.TabIndex = 3;
+            this.returnUserNoForm.Location = new System.Drawing.Point(220, 97);
+            this.returnUserNoForm.Name = "returnUserNoForm";
+            this.returnUserNoForm.Size = new System.Drawing.Size(170, 21);
+            this.returnUserNoForm.TabIndex = 3;
             // 
             // label3
             // 
@@ -78,32 +78,33 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "书籍编号：";
             // 
-            // textBox2
+            // returnBookNoForm
             // 
-            this.textBox2.Location = new System.Drawing.Point(220, 145);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(170, 21);
-            this.textBox2.TabIndex = 5;
+            this.returnBookNoForm.Location = new System.Drawing.Point(220, 145);
+            this.returnBookNoForm.Name = "returnBookNoForm";
+            this.returnBookNoForm.Size = new System.Drawing.Size(170, 21);
+            this.returnBookNoForm.TabIndex = 5;
             // 
-            // button1
+            // SearchBtn
             // 
-            this.button1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(179, 198);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 33);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "查询";
-            this.button1.UseVisualStyleBackColor = true;
+            this.SearchBtn.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SearchBtn.Location = new System.Drawing.Point(179, 198);
+            this.SearchBtn.Name = "SearchBtn";
+            this.SearchBtn.Size = new System.Drawing.Size(111, 33);
+            this.SearchBtn.TabIndex = 8;
+            this.SearchBtn.Text = "查询";
+            this.SearchBtn.UseVisualStyleBackColor = true;
+            this.SearchBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // Return
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(491, 277);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.SearchBtn);
+            this.Controls.Add(this.returnBookNoForm);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.returnUserNoForm);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Return";
@@ -117,9 +118,9 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox returnUserNoForm;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox returnBookNoForm;
+        private System.Windows.Forms.Button SearchBtn;
     }
 }
