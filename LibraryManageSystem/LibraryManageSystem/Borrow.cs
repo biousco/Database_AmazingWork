@@ -47,5 +47,15 @@ namespace LibraryManageSystem
         {
 
         }
+
+        private void borrowUserNoINput_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void borrowUserNoINput_lostFucus(object sender, EventArgs e)
+        {
+            MessageBox.Show("用户名或密码错误，请重新输入！", "错误");
+        }
     }
 }
