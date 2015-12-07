@@ -16,21 +16,15 @@ namespace LibraryManageSystem
         public Borrow()
         {
             InitializeComponent();
+            renderData();
         }
 
-        public Borrow (string book_id)
+        public void renderData ()
         {
-            InitializeComponent();
-            renderData(book_id);
-        }
-
-        public void renderData (string book_id)
-        {
-            Model.Book model = Book.GetSingleBook(book_id);
-            userNameLabel.Text = UserHelper.userName;
-            userIdLabel.Text = UserHelper.userId;
-            BookNameLabel.Text = model.Name;
-            BookIdLabel.Text = model.Id;
+            userNameLabel.Text = UserHelper._userName;
+            userIdLabel.Text = UserHelper._userId;
+            BookNameLabel.Text = BookHelper.book_name;
+            BookIdLabel.Text = BookHelper.book_id;
         }
 
         private void label1_Click(object sender, EventArgs e)

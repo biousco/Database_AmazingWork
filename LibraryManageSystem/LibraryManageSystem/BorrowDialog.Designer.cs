@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.FindBtn = new System.Windows.Forms.Button();
+            this.borrowUserNoLabel = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.BookNameLabel = new System.Windows.Forms.Label();
@@ -38,24 +38,24 @@
             this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // FindBtn
             // 
-            this.button1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(162, 216);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 33);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "查询";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.FindBtn.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.FindBtn.Location = new System.Drawing.Point(162, 216);
+            this.FindBtn.Name = "FindBtn";
+            this.FindBtn.Size = new System.Drawing.Size(111, 33);
+            this.FindBtn.TabIndex = 14;
+            this.FindBtn.Text = "查询";
+            this.FindBtn.UseVisualStyleBackColor = true;
+            this.FindBtn.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // borrowUserNoLabel
             // 
-            this.textBox1.Location = new System.Drawing.Point(215, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(170, 21);
-            this.textBox1.TabIndex = 11;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.borrowUserNoLabel.Location = new System.Drawing.Point(215, 77);
+            this.borrowUserNoLabel.Name = "borrowUserNoLabel";
+            this.borrowUserNoLabel.Size = new System.Drawing.Size(170, 21);
+            this.borrowUserNoLabel.TabIndex = 11;
+            this.borrowUserNoLabel.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label2
             // 
@@ -86,7 +86,7 @@
             // 
             this.BookNameLabel.AutoSize = true;
             this.BookNameLabel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BookNameLabel.Location = new System.Drawing.Point(211, 120);
+            this.BookNameLabel.Location = new System.Drawing.Point(211, 115);
             this.BookNameLabel.Name = "BookNameLabel";
             this.BookNameLabel.Size = new System.Drawing.Size(122, 21);
             this.BookNameLabel.TabIndex = 18;
@@ -96,7 +96,7 @@
             // 
             this.BookIdLabel.AutoSize = true;
             this.BookIdLabel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BookIdLabel.Location = new System.Drawing.Point(211, 158);
+            this.BookIdLabel.Location = new System.Drawing.Point(211, 153);
             this.BookIdLabel.Name = "BookIdLabel";
             this.BookIdLabel.Size = new System.Drawing.Size(213, 21);
             this.BookIdLabel.TabIndex = 17;
@@ -106,7 +106,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(72, 120);
+            this.label6.Location = new System.Drawing.Point(72, 115);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -118,7 +118,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(72, 158);
+            this.label5.Location = new System.Drawing.Point(72, 153);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -135,12 +135,13 @@
             this.Controls.Add(this.BookIdLabel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.FindBtn);
+            this.Controls.Add(this.borrowUserNoLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "BorrowDialog";
             this.Text = "BorrowDialog";
+            this.Load += new System.EventHandler(this.BorrowDialog_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,8 +149,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button FindBtn;
+        private System.Windows.Forms.TextBox borrowUserNoLabel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label BookNameLabel;

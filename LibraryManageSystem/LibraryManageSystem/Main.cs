@@ -17,10 +17,15 @@ namespace LibraryManageSystem
         public Main()
         {
             InitializeComponent();
+            HelloUser();
             Fill();
             InitColName();
+            Authorized();
         }
 
+        /// <summary>
+        /// 渲染表列名
+        /// </summary>
         public void InitColName ()
         {
             String [] ColName = { "书籍编号", "书籍名称", "书籍作者", "出版社", "现存数" };
@@ -28,10 +33,11 @@ namespace LibraryManageSystem
             {
                 dgvBookList.Columns[i].HeaderText = ColName[i];
             }
-            
-
         }
 
+        /// <summary>
+        /// 填充书籍列表数据
+        /// </summary>
         public void Fill()
         {
             string sqlStr = "";
@@ -47,9 +53,30 @@ namespace LibraryManageSystem
             dgvBookList.DataSource = bll.GetList(sqlStr);
         }
 
-        private void Main_Load(object sender, EventArgs e)
+        /// <summary>
+        /// 根据游客和管理员展示不同按钮
+        /// </summary>
+        public void Authorized()
         {
-            Fill();
+            int prior = UserHelper.IDENTITY;
+            if(prior == 0)
+            {
+                this.Controls.Remove(borrowBtn);
+                this.Controls.Remove(returnBtn);
+            }
+        }
+
+        public void HelloUser()
+        {
+            string name_p = "";
+            if(UserHelper.IDENTITY == 1)
+            {
+                name_p = "管理员";
+            } else
+            {
+                name_p = "同学";
+            }
+            WelcomeLabel.Text = "欢迎你！" + UserHelper.userName + name_p;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -86,7 +113,7 @@ namespace LibraryManageSystem
         {
             int index = dgvBookList.CurrentRow.Index;
             string book_id = dgvBookList.Rows[index].Cells["b_id"].Value.ToString();
-            Borrow form = new Borrow(book_id);
+            BorrowDialog form = new BorrowDialog(book_id);
             form.ShowDialog();
         }
     }

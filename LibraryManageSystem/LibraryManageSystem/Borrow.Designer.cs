@@ -38,7 +38,7 @@
             this.userNameLabel = new System.Windows.Forms.Label();
             this.BookIdLabel = new System.Windows.Forms.Label();
             this.BookNameLabel = new System.Windows.Forms.Label();
-            this.borrowUserNoINput = new System.Windows.Forms.TextBox();
+            this.userIdLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -147,20 +147,21 @@
             this.BookNameLabel.TabIndex = 12;
             this.BookNameLabel.Text = "法老王的帝国啊";
             // 
-            // borrowUserNoINput
+            // userIdLabel
             // 
-            this.borrowUserNoINput.Location = new System.Drawing.Point(303, 175);
-            this.borrowUserNoINput.Name = "borrowUserNoINput";
-            this.borrowUserNoINput.Size = new System.Drawing.Size(183, 26);
-            this.borrowUserNoINput.TabIndex = 13;
-            this.borrowUserNoINput.TextChanged += new System.EventHandler(this.borrowUserNoINput_TextChanged);
+            this.userIdLabel.AutoSize = true;
+            this.userIdLabel.Location = new System.Drawing.Point(299, 176);
+            this.userIdLabel.Name = "userIdLabel";
+            this.userIdLabel.Size = new System.Drawing.Size(187, 20);
+            this.userIdLabel.TabIndex = 13;
+            this.userIdLabel.Text = "CN-DDFDSF23214234R234";
             // 
             // Borrow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 409);
-            this.Controls.Add(this.borrowUserNoINput);
+            this.Controls.Add(this.userIdLabel);
             this.Controls.Add(this.BookNameLabel);
             this.Controls.Add(this.BookIdLabel);
             this.Controls.Add(this.userNameLabel);
@@ -193,6 +194,6 @@
         private System.Windows.Forms.Label userNameLabel;
         private System.Windows.Forms.Label BookIdLabel;
         private System.Windows.Forms.Label BookNameLabel;
-        private System.Windows.Forms.TextBox borrowUserNoINput;
+        private System.Windows.Forms.Label userIdLabel;
     }
 }

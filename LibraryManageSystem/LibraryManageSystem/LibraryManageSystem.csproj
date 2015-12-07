@@ -85,6 +85,7 @@
     <Compile Include="Return.Designer.cs">
       <DependentUpon>Return.cs</DependentUpon>
     </Compile>
+    <Compile Include="BookHelper.cs" />
     <Compile Include="UserHelper.cs" />
     <EmbeddedResource Include="Borrow.resx">
       <DependentUpon>Borrow.cs</DependentUpon>
