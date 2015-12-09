@@ -56,6 +56,9 @@ namespace LibraryManageSystem
             {
                 MessageBox.Show("归还失败！");
             }
+            Main form = new Main();
+            form.Show();
+            this.Close();
         }
 
         private void BorrowResult_Load(object sender, EventArgs e)

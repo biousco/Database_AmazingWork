@@ -47,6 +47,9 @@ namespace LibraryManageSystem
             {
                 MessageBox.Show("借阅失败！");
             }
+            Main form = new Main();
+            form.Show();
+            this.Close();
         }
 
         private void Borrow_Load(object sender, EventArgs e)

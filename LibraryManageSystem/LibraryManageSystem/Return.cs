@@ -12,6 +12,7 @@ namespace LibraryManageSystem
 {
     public partial class Return : Form
     {
+
         Model.Viewer viewer = new Model.Viewer();
         Model.Book book = new Model.Book();
         Model.Manager manager = new Model.Manager();
@@ -28,6 +29,7 @@ namespace LibraryManageSystem
             manager.Id = UserHelper.userId;
             BorrowResult form = new BorrowResult(viewer, book, manager);
             form.ShowDialog();
+            this.Close();
         }
     }
 }

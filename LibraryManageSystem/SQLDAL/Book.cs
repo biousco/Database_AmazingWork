@@ -30,12 +30,16 @@ namespace SQLDAL
                 new SqlParameter ("@amount",SqlDbType.Int),
                 new SqlParameter ("@borrow_date",SqlDbType.Date),
                 new SqlParameter ("@m_id",SqlDbType.VarChar,20),
+                new SqlParameter ("@c",SqlDbType.Int),
+
             };
             parameters[0].Value = book.Id;
             parameters[1].Value = viewer.Id;
-            parameters[2].Value = 1;
+            parameters[2].Value = 1;//?
             parameters[3].Value = new DateTime();
             parameters[4].Value = manager.Id;
+            parameters[5].Value = 1;
+
             int i;
             i = SqlDbHelper.ExecuteNonQueryBySP(procedureName, CommandType.StoredProcedure, parameters);
 
@@ -111,13 +115,17 @@ namespace SQLDAL
                 new SqlParameter ("@return_date",SqlDbType.Date),
                 new SqlParameter ("@delaytime",SqlDbType.Int),
                 new SqlParameter ("@m_id",SqlDbType.VarChar,20),
+                new SqlParameter ("@c",SqlDbType.Int),
+
             };
             parameters[0].Value = book.Id;
             parameters[1].Value = viewer.Id;
-            parameters[2].Value = 1;
+            parameters[2].Value = 1;//?
             parameters[3].Value = new DateTime();
-            parameters[4].Value = 0;
+            parameters[4].Value = 0;//?
             parameters[5].Value = manager.Id;
+            parameters[6].Value = 1;//?
+
             int i;
             i = SqlDbHelper.ExecuteNonQueryBySP(procedureName, CommandType.StoredProcedure, parameters);
 

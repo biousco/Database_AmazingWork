@@ -115,12 +115,14 @@ namespace LibraryManageSystem
             string book_id = dgvBookList.Rows[index].Cells["b_id"].Value.ToString();
             BorrowDialog form = new BorrowDialog(book_id);
             form.ShowDialog();
+            this.Close();
         }
 
         private void returnBtn_Click(object sender, EventArgs e)
         {
             Return form = new Return();
             form.ShowDialog();
+            this.Close();
         }
     }
 }

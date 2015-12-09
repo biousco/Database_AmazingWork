@@ -30,7 +30,8 @@ namespace LibraryManageSystem
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string userid = txtUserName.Text.Trim();
-            string password = txtPassword.Text.Trim();
+            string  password = txtPassword.Text.Trim();
+            
             if (userid == "" || password == "")
             {
                 MessageBox.Show("用户名或密码不能为空！");
@@ -72,6 +73,31 @@ namespace LibraryManageSystem
                     }
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (linkLabel1.Text == "管理员入口")
+            {
+                label1.Text = "管理员登陆";
+                label1.Location = new Point((this.Width - label1.Width) / 2, 27);
+                label2.Text = "账号";
+                linkLabel1.Text = "返回";
+            }
+            else
+            {
+                label1.Text = "欢迎来到图书管理系统";
+                label1.Location = new Point((this.Width - label1.Width) / 2, 27);
+                label2.Text = "学号";
+                linkLabel1.Text = "管理员入口";
+            }
+         
+            
         }
     }
 }

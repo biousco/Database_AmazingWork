@@ -69,6 +69,7 @@ namespace LibraryManageSystem
                 UserHelper._userId = borrowUserNo;
                 Borrow form = new Borrow();
                 form.Show();
+                this.Close();
             };
         }
 
