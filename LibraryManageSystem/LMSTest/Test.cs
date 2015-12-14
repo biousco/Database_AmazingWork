@@ -7,6 +7,7 @@ using System.Configuration;
 using System.Reflection;
 using System.Data;
 using System.Xml;
+using System.Collections;
 
 namespace LMSTest
 {
@@ -75,12 +76,12 @@ namespace LMSTest
             viewer.Id = "st";
             manager.Id = "manager";
 
-            bool expected = true;    //期望值
-            bool actual;
+            int expected = 1;    //期望值
+            Hashtable actual;
 
             SQLDAL.Book target = new SQLDAL.Book();
             actual = target.Borrow(book, viewer, manager); //实际值
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, actual["result"]);
            
         }
         [TestMethod()]

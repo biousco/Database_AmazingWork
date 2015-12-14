@@ -22,10 +22,26 @@ namespace LibraryManageSystem
             InitializeComponent();
         }
 
+        public Return (string b_id)
+        {
+            InitializeComponent();
+            returnBookNoForm.Text = b_id;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             viewer.Id = returnUserNoForm.Text;
             book.Id = returnBookNoForm.Text;
+            if(!ValidateHelper.validateBook(book))
+            {
+                MessageBox.Show("书籍不存在！");
+                return;
+            }
+            if(!ValidateHelper.validateViewer(viewer))
+            {
+                MessageBox.Show("用户不存在！");
+                return;
+            }
             manager.Id = UserHelper.userId;
             BorrowResult form = new BorrowResult(viewer, book, manager);
             form.ShowDialog();

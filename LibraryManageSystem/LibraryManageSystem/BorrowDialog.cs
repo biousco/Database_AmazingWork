@@ -61,16 +61,21 @@ namespace LibraryManageSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Model.Viewer v = new Model.Viewer();
+            v.Id = borrowUserNoLabel.Text;
+            if (!ValidateHelper.validateViewer(v))
+            {
+                MessageBox.Show("用户不存在！");
+                return;
+            }
+
             string borrowUserNo = borrowUserNoLabel.Text;
             string userName = viewer.GetViewerName(borrowUserNo);
-            if (userName != "")
-            {
                 UserHelper._userName = userName;
                 UserHelper._userId = borrowUserNo;
                 Borrow form = new Borrow();
                 form.Show();
                 this.Close();
-            };
         }
 
         private void BorrowDialog_Load(object sender, EventArgs e)

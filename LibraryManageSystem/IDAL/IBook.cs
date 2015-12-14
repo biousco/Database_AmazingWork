@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace IDAL
     {
         DataTable GetList(string sqlStr);
         Model.Book GetSingleBook(string book_id);
-        bool Borrow(Model.Book book, Model.Viewer viewer, Model.Manager manager);
+        Hashtable Borrow(Model.Book book, Model.Viewer viewer, Model.Manager manager);
         bool ReturnBook(Model.Viewer viewer, Model.Book book, Model.Manager manager);
     };
 }

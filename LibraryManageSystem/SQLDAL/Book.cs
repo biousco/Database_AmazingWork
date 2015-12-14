@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Data;
 using Model;
 using System.Data.SqlClient;
+using System.Xml;
+using System.Collections;
 
 namespace SQLDAL
 {
@@ -20,7 +22,7 @@ namespace SQLDAL
         /// <param name="book"></param>
         /// <param name="viewer"></param>
         /// <returns></returns>
-        public bool Borrow(Model.Book book, Model.Viewer viewer, Model.Manager manager)
+        public Hashtable Borrow(Model.Book book, Model.Viewer viewer, Model.Manager manager)
         {
             string procedureName = "BorrowBook";
             SqlParameter[] parameters =
@@ -43,12 +45,28 @@ namespace SQLDAL
             int i;
             i = SqlDbHelper.ExecuteNonQueryBySP(procedureName, CommandType.StoredProcedure, parameters);
 
+            Hashtable result = new Hashtable();
+
             if (i == 1)
             {
-                return true;
+                result.Add("result", 1);
+                result.Add("msg", "添加成功!");
+                return result;
+            } else if (i == 0)
+            {
+                result.Add("result", 0);
+                result.Add("msg", "书籍已无库存");
+                return result;
+            } else if (i == -1)
+            {
+                result.Add("result", -1);
+                result.Add("msg", "您已借过此书！");
+                return result;
             } else
             {
-                return false;
+                result.Add("result", -2);
+                result.Add("msg", "系统出错！");
+                return result;
             }
         }
 

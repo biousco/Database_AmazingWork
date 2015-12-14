@@ -87,6 +87,7 @@
     </Compile>
     <Compile Include="BookHelper.cs" />
     <Compile Include="UserHelper.cs" />
+    <Compile Include="ValidateHelper.cs" />
     <EmbeddedResource Include="Borrow.resx">
       <DependentUpon>Borrow.cs</DependentUpon>
     </EmbeddedResource>
