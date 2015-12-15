@@ -79,6 +79,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Record.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Record.Designer.cs">
+      <DependentUpon>Record.cs</DependentUpon>
+    </Compile>
     <Compile Include="Return.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Record.resx">
+      <DependentUpon>Record.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Return.resx">
       <DependentUpon>Return.cs</DependentUpon>
     </EmbeddedResource>

@@ -126,5 +126,11 @@ namespace LibraryManageSystem
             form.ShowDialog();
             this.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Record form = new Record();
+            form.ShowDialog();
+        }
     }
 }

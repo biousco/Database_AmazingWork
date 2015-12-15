@@ -31,6 +31,12 @@ namespace DALFactory
             return (IManager)Assembly.Load(AssemblyName).CreateInstance(className);
         }
 
+        public static IRecord CreateRecord ()
+        {
+            string className = AssemblyName + ".Record";
+            return (IRecord)Assembly.Load(AssemblyName).CreateInstance(className);
+        }
+
 
     }
 }

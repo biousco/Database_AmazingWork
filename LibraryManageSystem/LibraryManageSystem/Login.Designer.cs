@@ -40,6 +40,7 @@
             // 
             // txtUserName
             // 
+            this.txtUserName.AcceptsTab = true;
             this.txtUserName.Location = new System.Drawing.Point(123, 103);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(218, 21);
@@ -48,6 +49,7 @@
             // 
             // txtPassword
             // 
+            this.txtPassword.AcceptsTab = true;
             this.txtPassword.Location = new System.Drawing.Point(123, 140);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
