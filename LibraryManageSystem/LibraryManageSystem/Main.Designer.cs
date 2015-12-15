@@ -53,16 +53,18 @@
             // 
             // searchType
             // 
-            this.searchType.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.searchType.BackColor = System.Drawing.Color.White;
+            this.searchType.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.searchType.ForeColor = System.Drawing.SystemColors.ControlText;
             this.searchType.FormattingEnabled = true;
-            this.searchType.ItemHeight = 14;
+            this.searchType.ItemHeight = 20;
             this.searchType.Items.AddRange(new object[] {
             "书籍编号",
             "书籍名称",
             "书籍作者"});
-            this.searchType.Location = new System.Drawing.Point(138, 52);
+            this.searchType.Location = new System.Drawing.Point(138, 51);
             this.searchType.Name = "searchType";
-            this.searchType.Size = new System.Drawing.Size(130, 22);
+            this.searchType.Size = new System.Drawing.Size(130, 28);
             this.searchType.TabIndex = 1;
             this.searchType.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
