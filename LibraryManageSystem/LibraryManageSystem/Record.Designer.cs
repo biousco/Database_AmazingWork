@@ -39,7 +39,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(343, 40);
+            this.label1.Location = new System.Drawing.Point(428, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 31);
             this.label1.TabIndex = 0;
@@ -48,18 +48,20 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(46, 137);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(705, 331);
+            this.dataGridView1.Size = new System.Drawing.Size(904, 331);
             this.dataGridView1.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(89, 95);
+            this.label2.Location = new System.Drawing.Point(42, 92);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 21);
             this.label2.TabIndex = 2;
@@ -71,7 +73,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "所有记录",
             "逾期记录"});
-            this.comboBox1.Location = new System.Drawing.Point(223, 96);
+            this.comboBox1.Location = new System.Drawing.Point(169, 92);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(154, 20);
             this.comboBox1.TabIndex = 3;
@@ -80,7 +82,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(788, 539);
+            this.ClientSize = new System.Drawing.Size(990, 539);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);

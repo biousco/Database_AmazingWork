@@ -157,6 +157,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Main";
             this.Text = "Main";
+            this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

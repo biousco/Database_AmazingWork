@@ -10,6 +10,6 @@ namespace IDAL
     public interface IRecord
     {
         DataTable getUserRecord(Model.Viewer viewer, string sql);
-        DataTable getAllRecord(string sql);
+        DataTable getAllRecord();
     }
 }

@@ -23,23 +23,27 @@ namespace LibraryManageSystem
         {
             Model.Viewer viewer = new Model.Viewer();
             string sql = "";
+            string [] ColName ;
             //学生
             if(UserHelper.IDENTITY == 0)
             {
-
                 viewer.Id = UserHelper.userId;
                 dataGridView1.DataSource = record_bll.GetUserRecord(viewer, sql);
-                String[] ColName = { "书籍编号", "书籍名称", "书籍作者", "出版社", "借阅日期","状态" };
-                for (int i = 0; i < dataGridView1.Columns.Count; i++)
-                {
-                    dataGridView1.Columns[i].HeaderText = ColName[i];
-                }
-
-            } else if (UserHelper.IDENTITY == 1)
+                ColName = new string[]{ "书籍编号", "书籍名称", "书籍作者", "出版社", "借阅日期", "状态" };
+            } else
             {
-                viewer.Id = UserHelper._userId;
+                dataGridView1.DataSource = record_bll.GetAllRecord();
+                ColName = new string[] { "书籍编号", "书籍名称", "学生编号","学生名字","书籍作者", "出版社", "借阅日期", "状态" };
             }
-            if(comboBox1.Text == "逾期记录")
+
+           
+            for (int i = 0; i < dataGridView1.Columns.Count; i++)
+            {
+                dataGridView1.Columns[i].HeaderText = ColName[i];
+            }
+
+
+            if (comboBox1.Text == "逾期记录")
             {
                 sql = "";
             }
