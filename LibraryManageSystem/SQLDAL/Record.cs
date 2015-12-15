@@ -43,5 +43,35 @@ namespace SQLDAL
                              CommandType.Text, parameters);
             return dt;
         }
+
+        /// <summary>
+        /// 根据书籍编号和借阅人编号得到借阅时间
+        /// </summary>
+        /// <param name="book"></param>
+        /// <param name="viewer"></param>
+        /// <returns></returns>
+        public DateTime getRecordBorrowTime(Model.Book book, Model.Viewer viewer)
+        {
+            string strSql = "select borrow_date from [BorrowInfo] where r_id=@r_id and b_id=@b_id";
+            SqlParameter[] parameters ={
+                           new SqlParameter ("@r_id",SqlDbType .VarChar,50),
+                           new SqlParameter ("@b_id",SqlDbType.VarChar,50)
+                                      };
+            parameters[0].Value = viewer.Id;
+            parameters[1].Value = book.Id;
+
+            DataTable dt = SqlDbHelper.ExecuteDataTable(strSql.ToString(),
+                 CommandType.Text, parameters);
+            string result ="";
+            if (dt.Rows.Count > 0)
+            {
+                if (dt.Rows[0]["borrow_date"] != null && dt.Rows[0]["borrow_date"].ToString() != "")
+                {
+                    result = dt.Rows[0]["borrow_date"].ToString();
+                }
+            }
+            result = result.Split(' ')[0];
+            return DateTime.Parse(result);
+        }
     }
 }

@@ -127,6 +127,29 @@ namespace LMSTest
         }
         
     }
+
+    [TestClass()]
+    public class RecordTest
+    {
+        [TestMethod()]
+        public void getRecordBorrowTime()
+        {
+            string b_id = "9787550264601";
+            string r_id = "s001";
+            Model.Viewer v = new Model.Viewer();
+            v.Id = r_id;
+            Model.Book b = new Model.Book();
+            b.Id = b_id;
+
+            DateTime expected = new DateTime();    //期望值
+            expected = Convert.ToDateTime("2015-12-15");
+            DateTime actual;
+
+            SQLDAL.Record target = new SQLDAL.Record();
+            actual = target.getRecordBorrowTime(b, v); //实际值
+            Assert.AreEqual(expected, actual);
+        }
+    }
     
 
 
