@@ -90,8 +90,8 @@ namespace LMSTest
             Model.Book book = new Model.Book();
             Model.Viewer viewer = new Model.Viewer();
             Model.Manager manager = new Model.Manager();
-            book.Id = "book";
-            viewer.Id = "st";
+            book.Id = "9787569902921";
+            viewer.Id = "s001";
             manager.Id = "manager";
 
             bool expected = true;    //期望值

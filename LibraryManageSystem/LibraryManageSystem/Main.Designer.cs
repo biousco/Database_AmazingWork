@@ -37,6 +37,7 @@
             this.returnBtn = new System.Windows.Forms.Button();
             this.WelcomeLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,7 +137,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(263, 390);
+            this.button1.Location = new System.Drawing.Point(191, 390);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 39);
             this.button1.TabIndex = 9;
@@ -144,11 +145,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.Location = new System.Drawing.Point(330, 390);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(94, 39);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "书籍管理";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 471);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.WelcomeLabel);
             this.Controls.Add(this.returnBtn);
@@ -160,6 +172,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Main";
             this.Text = "Main";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_Closing);
             this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookList)).EndInit();
             this.ResumeLayout(false);
@@ -178,5 +191,6 @@
         private System.Windows.Forms.Button returnBtn;
         private System.Windows.Forms.Label WelcomeLabel;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

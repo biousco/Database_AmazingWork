@@ -26,10 +26,10 @@ namespace LibraryManageSystem
         /// <summary>
         /// 渲染表列名
         /// </summary>
-        public void InitColName ()
+        public void InitColName()
         {
-            String [] ColName = { "书籍编号", "书籍名称", "书籍作者", "出版社", "现存数" };
-            for(int i = 0; i < dgvBookList.Columns.Count; i++)
+            String[] ColName = { "书籍编号", "书籍名称", "书籍作者", "出版社", "现存数" };
+            for (int i = 0; i < dgvBookList.Columns.Count; i++)
             {
                 dgvBookList.Columns[i].HeaderText = ColName[i];
             }
@@ -49,7 +49,7 @@ namespace LibraryManageSystem
             {
                 sqlStr = (string)type_str[searchType.Text] + " like '%" + searchStr.Text.Trim() + "%'";
             }
-            
+
             dgvBookList.DataSource = bll.GetList(sqlStr);
         }
 
@@ -59,7 +59,7 @@ namespace LibraryManageSystem
         public void Authorized()
         {
             int prior = UserHelper.IDENTITY;
-            if(prior == 0)
+            if (prior == 0)
             {
                 this.Controls.Remove(borrowBtn);
                 this.Controls.Remove(returnBtn);
@@ -69,10 +69,11 @@ namespace LibraryManageSystem
         public void HelloUser()
         {
             string name_p = "";
-            if(UserHelper.IDENTITY == 1)
+            if (UserHelper.IDENTITY == 1)
             {
                 name_p = "管理员";
-            } else
+            }
+            else
             {
                 name_p = "同学";
             }
@@ -136,6 +137,19 @@ namespace LibraryManageSystem
         private void Main_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Main_Closing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult res = MessageBox.Show("请确认是否退出程序？","提示",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
+            if (res == DialogResult.OK)
+            {
+                e.Cancel = false;
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

@@ -47,6 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookDetail.Designer.cs">
+      <DependentUpon>BookDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BookManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookManage.Designer.cs">
+      <DependentUpon>BookManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Borrow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +106,12 @@
     <Compile Include="BookHelper.cs" />
     <Compile Include="UserHelper.cs" />
     <Compile Include="ValidateHelper.cs" />
+    <EmbeddedResource Include="BookDetail.resx">
+      <DependentUpon>BookDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookManage.resx">
+      <DependentUpon>BookManage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Borrow.resx">
       <DependentUpon>Borrow.cs</DependentUpon>
     </EmbeddedResource>
