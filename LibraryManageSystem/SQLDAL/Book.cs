@@ -37,6 +37,42 @@ namespace SQLDAL
             parameters[3].Value = book.Publisher;
             parameters[4].Value = Convert.ToInt32(book.Amount);
 
+            Model.Book prev = GetSingleBook(book.Id);
+            if (prev.Id == book.Id)
+            {
+                return false;
+            }
+
+            int n = Convert.ToInt32(SqlDbHelper.ExecuteNonQuery(strSql, CommandType.Text, parameters));
+            if (n == 1)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// 更新书籍信息
+        /// </summary>
+        /// <param name="book"></param>
+        /// <returns></returns>
+        public bool UpdateBook(Model.Book book)
+        {
+            string strSql = "update [Book] set b_name = @b_name, author = @author ,publisher = @publisher ,amount = @amount where b_id = @b_id ";
+            SqlParameter[] parameters ={
+                           new SqlParameter ("@b_id",SqlDbType .VarChar,50),
+                           new SqlParameter ("@b_name",SqlDbType .VarChar,50),
+                           new SqlParameter ("@author",SqlDbType .VarChar,50),
+                           new SqlParameter ("@publisher",SqlDbType .VarChar,50),
+                           new SqlParameter ("@amount",SqlDbType .Int,50),
+                                      };
+            parameters[0].Value = book.Id;
+            parameters[1].Value = book.Name;
+            parameters[2].Value = book.Author;
+            parameters[3].Value = book.Publisher;
+            parameters[4].Value = Convert.ToInt32(book.Amount);
+
+            Model.Book prev = GetSingleBook(book.Id);
+
             int n = Convert.ToInt32(SqlDbHelper.ExecuteNonQuery(strSql, CommandType.Text, parameters));
             if (n == 1)
                 return true;

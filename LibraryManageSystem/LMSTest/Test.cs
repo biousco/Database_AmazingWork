@@ -324,7 +324,20 @@ namespace LMSTest
             bool expected = true;
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod()]
+        public void UpdateBook()
+        {
 
+            Model.Book book = new Model.Book();
+            book = TestHelper.initBook();
+            book.Id = "DKLFJO2342";
+            //测试用
+
+            SQLDAL.Book target = new SQLDAL.Book();
+            bool actual = target.UpdateBook(book);
+            bool expected = true;
+            Assert.AreEqual(expected, actual);
+        }
     }
 
     [TestClass()]

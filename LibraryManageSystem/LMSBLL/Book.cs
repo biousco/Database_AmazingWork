@@ -57,9 +57,19 @@ namespace LMSBLL
             return book.ReturnBook(viewer, b_book, manager);
         }
 
+        /// <summary>
+        /// 添加书籍
+        /// </summary>
+        /// <param name="b_book"></param>
+        /// <returns></returns>
         public bool AddBook(Model.Book b_book)
         {
             return book.AddBook(b_book);
+        }
+
+        public bool UpdateBook(Model.Book b_book)
+        {
+            return book.UpdateBook(b_book);
         }
     }
 }

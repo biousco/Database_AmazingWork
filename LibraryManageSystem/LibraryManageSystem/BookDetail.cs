@@ -21,12 +21,18 @@ namespace LibraryManageSystem
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="book_id"></param>
         public BookDetail(int type, string book_id)
         {
             InitializeComponent();
             if(type == 2)
             {
                 titleLabel.Text = "修改书籍";
+                CURRENT_TYPE = 2;
             }
             Model.Book book =  bll.GetSingleBook(book_id);
             textBox1.Text = book.Name;
@@ -34,6 +40,7 @@ namespace LibraryManageSystem
             textBox3.Text = book.Author;
             textBox4.Text = book.Publisher;
             textBox5.Text = book.Amount;
+            textBox2.ReadOnly = true;
         }
 
         public BookDetail(int type)
@@ -78,11 +85,29 @@ namespace LibraryManageSystem
                 if(result)
                 {
                     MessageBox.Show("书籍添加成功！");
+                    this.Hide();
                 } else
+                {
+                    MessageBox.Show("书籍添加失败...请检查书籍编号");
+                }
+            } else if (CURRENT_TYPE == 2)
+            {
+                bool result = bll.UpdateBook(m_book);
+                if (result)
+                {
+                    MessageBox.Show("书籍更新成功！");
+                    this.Hide();
+                }
+                else
                 {
                     MessageBox.Show("书籍添加失败...");
                 }
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

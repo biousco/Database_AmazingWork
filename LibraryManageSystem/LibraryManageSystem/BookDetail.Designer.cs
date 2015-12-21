@@ -126,14 +126,14 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(147, 236);
+            this.textBox4.Location = new System.Drawing.Point(147, 204);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(272, 21);
             this.textBox4.TabIndex = 38;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(147, 200);
+            this.textBox5.Location = new System.Drawing.Point(147, 240);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(272, 21);
             this.textBox5.TabIndex = 39;
@@ -159,6 +159,7 @@
             this.button3.TabIndex = 41;
             this.button3.Text = "取消";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button1
             // 
