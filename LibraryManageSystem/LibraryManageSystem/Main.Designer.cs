@@ -36,6 +36,7 @@
             this.borrowBtn = new System.Windows.Forms.Button();
             this.returnBtn = new System.Windows.Forms.Button();
             this.WelcomeLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,16 +53,19 @@
             // 
             // searchType
             // 
-            this.searchType.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.searchType.BackColor = System.Drawing.Color.White;
+            this.searchType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.searchType.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.searchType.ForeColor = System.Drawing.SystemColors.ControlText;
             this.searchType.FormattingEnabled = true;
-            this.searchType.ItemHeight = 14;
+            this.searchType.ItemHeight = 20;
             this.searchType.Items.AddRange(new object[] {
             "书籍编号",
             "书籍名称",
             "书籍作者"});
-            this.searchType.Location = new System.Drawing.Point(138, 52);
+            this.searchType.Location = new System.Drawing.Point(138, 51);
             this.searchType.Name = "searchType";
-            this.searchType.Size = new System.Drawing.Size(130, 22);
+            this.searchType.Size = new System.Drawing.Size(130, 28);
             this.searchType.TabIndex = 1;
             this.searchType.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -100,7 +104,7 @@
             // borrowBtn
             // 
             this.borrowBtn.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.borrowBtn.Location = new System.Drawing.Point(82, 390);
+            this.borrowBtn.Location = new System.Drawing.Point(58, 390);
             this.borrowBtn.Name = "borrowBtn";
             this.borrowBtn.Size = new System.Drawing.Size(94, 39);
             this.borrowBtn.TabIndex = 5;
@@ -111,7 +115,7 @@
             // returnBtn
             // 
             this.returnBtn.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.returnBtn.Location = new System.Drawing.Point(407, 390);
+            this.returnBtn.Location = new System.Drawing.Point(475, 390);
             this.returnBtn.Name = "returnBtn";
             this.returnBtn.Size = new System.Drawing.Size(94, 39);
             this.returnBtn.TabIndex = 7;
@@ -129,11 +133,23 @@
             this.WelcomeLabel.TabIndex = 8;
             this.WelcomeLabel.Text = "欢迎你！";
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Location = new System.Drawing.Point(263, 390);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 39);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "记录查询";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 460);
+            this.ClientSize = new System.Drawing.Size(632, 471);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.WelcomeLabel);
             this.Controls.Add(this.returnBtn);
             this.Controls.Add(this.borrowBtn);
@@ -144,6 +160,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Main";
             this.Text = "Main";
+            this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -160,5 +177,6 @@
         private System.Windows.Forms.Button borrowBtn;
         private System.Windows.Forms.Button returnBtn;
         private System.Windows.Forms.Label WelcomeLabel;
+        private System.Windows.Forms.Button button1;
     }
 }

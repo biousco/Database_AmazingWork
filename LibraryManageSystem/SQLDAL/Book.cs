@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Data;
 using Model;
 using System.Data.SqlClient;
+using System.Xml;
+using System.Collections;
 
 namespace SQLDAL
 {
@@ -20,7 +22,7 @@ namespace SQLDAL
         /// <param name="book"></param>
         /// <param name="viewer"></param>
         /// <returns></returns>
-        public bool Borrow(Model.Book book, Model.Viewer viewer, Model.Manager manager)
+        public Hashtable Borrow(Model.Book book, Model.Viewer viewer, Model.Manager manager)
         {
             string procedureName = "BorrowBook";
             SqlParameter[] parameters =
@@ -28,7 +30,7 @@ namespace SQLDAL
                 new SqlParameter ("@b_id",SqlDbType.VarChar,20),
                 new SqlParameter ("@r_id",SqlDbType.VarChar,20),
                 new SqlParameter ("@amount",SqlDbType.Int),
-                new SqlParameter ("@borrow_date",SqlDbType.Date),
+                new SqlParameter ("@borrow_date",SqlDbType.DateTime),
                 new SqlParameter ("@m_id",SqlDbType.VarChar,20),
                 new SqlParameter ("@c",SqlDbType.Int),
 
@@ -36,19 +38,35 @@ namespace SQLDAL
             parameters[0].Value = book.Id;
             parameters[1].Value = viewer.Id;
             parameters[2].Value = 1;//?
-            parameters[3].Value = new DateTime();
+            parameters[3].Value = DateTime.Now;
             parameters[4].Value = manager.Id;
             parameters[5].Value = 1;
 
             int i;
             i = SqlDbHelper.ExecuteNonQueryBySP(procedureName, CommandType.StoredProcedure, parameters);
 
+            Hashtable result = new Hashtable();
+
             if (i == 1)
             {
-                return true;
+                result.Add("result", 1);
+                result.Add("msg", "添加成功!");
+                return result;
+            } else if (i == 0)
+            {
+                result.Add("result", 0);
+                result.Add("msg", "书籍已无库存");
+                return result;
+            } else if (i == -1)
+            {
+                result.Add("result", -1);
+                result.Add("msg", "您已借过此书！");
+                return result;
             } else
             {
-                return false;
+                result.Add("result", -2);
+                result.Add("msg", "系统出错！");
+                return result;
             }
         }
 
@@ -106,13 +124,17 @@ namespace SQLDAL
         /// <returns></returns>
         public bool ReturnBook(Model.Viewer viewer, Model.Book book, Model.Manager manager)
         {
+            SQLDAL.Record dal = new Record();
+            DateTime borrow_t = dal.getRecordBorrowTime(book, viewer);
+            DateTime now_t = DateTime.Now;
+
             string procedureName = "ReturnBook";
             SqlParameter[] parameters =
             {
                 new SqlParameter ("@b_id",SqlDbType.VarChar,20),
                 new SqlParameter ("@r_id",SqlDbType.VarChar,20),
                 new SqlParameter ("@amount",SqlDbType.Int),
-                new SqlParameter ("@return_date",SqlDbType.Date),
+                new SqlParameter ("@return_date",SqlDbType.DateTime),
                 new SqlParameter ("@delaytime",SqlDbType.Int),
                 new SqlParameter ("@m_id",SqlDbType.VarChar,20),
                 new SqlParameter ("@c",SqlDbType.Int),
@@ -121,8 +143,8 @@ namespace SQLDAL
             parameters[0].Value = book.Id;
             parameters[1].Value = viewer.Id;
             parameters[2].Value = 1;//?
-            parameters[3].Value = new DateTime();
-            parameters[4].Value = 0;//?
+            parameters[3].Value = now_t;
+            parameters[4].Value = (now_t-borrow_t).Days;
             parameters[5].Value = manager.Id;
             parameters[6].Value = 1;//?
 

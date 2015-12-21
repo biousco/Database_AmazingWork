@@ -40,6 +40,7 @@
             // 
             // txtUserName
             // 
+            this.txtUserName.AcceptsTab = true;
             this.txtUserName.Location = new System.Drawing.Point(123, 103);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(218, 21);
@@ -48,10 +49,13 @@
             // 
             // txtPassword
             // 
+            this.txtPassword.AcceptsTab = true;
             this.txtPassword.Location = new System.Drawing.Point(123, 140);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(218, 21);
             this.txtPassword.TabIndex = 2;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // label2
             // 
@@ -93,6 +97,7 @@
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // label1
             // 
@@ -121,6 +126,7 @@
             // 
             // Login
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(408, 261);
@@ -134,6 +140,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Login";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

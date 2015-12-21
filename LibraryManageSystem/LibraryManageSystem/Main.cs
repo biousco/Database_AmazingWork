@@ -121,9 +121,22 @@ namespace LibraryManageSystem
 
         private void returnBtn_Click(object sender, EventArgs e)
         {
-            Return form = new Return();
+            int index = dgvBookList.CurrentRow.Index;
+            string book_id = dgvBookList.Rows[index].Cells["b_id"].Value.ToString();
+            Return form = new Return(book_id);
             form.ShowDialog();
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Record form = new Record();
+            form.ShowDialog();
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="IManager.cs" />
     <Compile Include="IBook.cs" />
+    <Compile Include="IRecord.cs" />
     <Compile Include="IViewer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

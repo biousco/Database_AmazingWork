@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,14 +40,8 @@ namespace LibraryManageSystem
         {
             manager.Name = UserHelper.userName;
             manager.Id = UserHelper.userId;
-            bool result = Book.Borrow(book, viewer, manager);
-            if(result == true)
-            {
-                MessageBox.Show("借阅成功！");
-            } else
-            {
-                MessageBox.Show("借阅失败！");
-            }
+            Hashtable result = Book.Borrow(book, viewer, manager);
+            MessageBox.Show(result["msg"].ToString());
             Main form = new Main();
             form.Show();
             this.Close();

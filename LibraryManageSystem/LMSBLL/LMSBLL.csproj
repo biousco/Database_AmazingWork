@@ -43,6 +43,7 @@
     <Compile Include="Book.cs" />
     <Compile Include="Manager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Record.cs" />
     <Compile Include="Viewer.cs" />
   </ItemGroup>
   <ItemGroup>

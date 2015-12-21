@@ -7,6 +7,7 @@ using System.Configuration;
 using System.Reflection;
 using System.Data;
 using System.Xml;
+using System.Collections;
 
 namespace LMSTest
 {
@@ -119,12 +120,16 @@ namespace LMSTest
             viewer.Id = "st";
             manager.Id = "manager";
 
-            bool expected = false;    //期望值//因为数据库中已经存在这一项数据 所以为false
-            bool actual;
+          //  bool expected = false;    //期望值//因为数据库中已经存在这一项数据 所以为false
+            //bool actual;
+
+            int expected = 0;    //期望值//因为数据库中已经存在这一项数据 所以为false
+            Hashtable actual;
+
 
             SQLDAL.Book target = new SQLDAL.Book();
             actual = target.Borrow(book, viewer, manager); //实际值
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, actual["result"]);
            
         }
         [TestMethod()]
@@ -137,12 +142,14 @@ namespace LMSTest
             viewer.Id = "s000001";//学号错误
             manager.Id = "manager";
 
-            bool expected = false;    //期望值
-            bool actual;
+            //bool expected = false;    //期望值
+            //bool actual;
+            int expected = 0;    //期望值
+            Hashtable actual;
 
             SQLDAL.Book target = new SQLDAL.Book();
             actual = target.Borrow(book, viewer, manager); //实际值
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, actual["result"]);
 
         }
         [TestMethod()]
@@ -155,12 +162,14 @@ namespace LMSTest
             viewer.Id = "s000001";
             manager.Id = "m";//帐号错误
 
-            bool expected = false;    //期望值
-            bool actual;
+           // bool expected = false;    //期望值
+            // bool actual;
+            int expected = 0;    //期望值
+            Hashtable actual;
 
             SQLDAL.Book target = new SQLDAL.Book();
             actual = target.Borrow(book, viewer, manager); //实际值
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, actual["result"]);
 
         }
         [TestMethod()]
@@ -173,13 +182,15 @@ namespace LMSTest
             viewer.Id = "st";
             manager.Id = "manager";
 
-            bool expected = false;    //期望值
-            bool actual;
+           // bool expected = false;    //期望值
+            //bool actual;
+            int expected = 0;    //期望值
+            Hashtable actual;
 
             SQLDAL.Book target = new SQLDAL.Book();
             target.Borrow(book, viewer, manager);//第一次借
             actual = target.Borrow(book, viewer, manager); //实际值//第二次借
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, actual["result"]);
             //由于系统限制每个人只能借同一本书一次 所以测试时只有第一次是能成功
         }
         [TestMethod()]
@@ -240,20 +251,28 @@ namespace LMSTest
         [TestMethod()]
         public void ReturnBIdErrTest()
         {
-            Model.Book book = new Model.Book();
-            Model.Viewer viewer = new Model.Viewer();
+            string b_id = "9787550264";
+            string r_id = "s001";
+            Model.Viewer v = new Model.Viewer();
+            v.Id = r_id;
+            Model.Book b = new Model.Book();
+            b.Id = b_id;
+            Model.Manager m = new Model.Manager();
+            //m.Id = m_id;
+            //Model.Book book = new Model.Book();
+            //Model.Viewer viewer = new Model.Viewer();
             Model.Manager manager = new Model.Manager();
-            book.Id = "boo";//书号错误
-            viewer.Id = "st";
+            //book.Id = "boo";//书号错误
+            //viewer.Id = "st";
             manager.Id = "manager";
 
             bool expected = false;    //期望值
             bool actual;
 
             SQLDAL.Book target = new SQLDAL.Book();
-            actual = target.ReturnBook(viewer, book, manager); //实际值
+            actual = target.ReturnBook(v, b, manager); //实际值
             Assert.AreEqual(expected, actual);
-        }
+        } 
         [TestMethod()]
         public void ReturnMIdErrTest()
         {
@@ -295,6 +314,29 @@ namespace LMSTest
             Assert.AreEqual(expected, actual);
         }
         
+    }
+
+    [TestClass()]
+    public class RecordTest
+    {
+        [TestMethod()]
+        public void getRecordBorrowTime()
+        {
+            string b_id = "9787550264601";
+            string r_id = "s001";
+            Model.Viewer v = new Model.Viewer();
+            v.Id = r_id;
+            Model.Book b = new Model.Book();
+            b.Id = b_id;
+
+            DateTime expected = new DateTime();    //期望值
+            expected = Convert.ToDateTime("2015-12-15");
+            DateTime actual;
+
+            SQLDAL.Record target = new SQLDAL.Record();
+            actual = target.getRecordBorrowTime(b, v); //实际值
+            Assert.AreEqual(expected, actual);
+        }
     }
     
 
