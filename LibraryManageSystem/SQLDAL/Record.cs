@@ -71,7 +71,15 @@ namespace SQLDAL
                 }
             }
             result = result.Split(' ')[0];
-            return DateTime.Parse(result);
+            DateTime dateresult = new DateTime();
+            try
+            {
+                dateresult = DateTime.Parse(result);
+            } catch (FormatException e)
+            {
+                
+            }
+            return dateresult;
         }
     }
 }

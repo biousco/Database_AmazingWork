@@ -184,7 +184,7 @@ namespace LMSTest
 
            // bool expected = false;    //期望值
             //bool actual;
-            int expected = 0;    //期望值
+            int expected = -1;    //期望值 已经借过的返回值为-1
             Hashtable actual;
 
             SQLDAL.Book target = new SQLDAL.Book();
@@ -354,6 +354,7 @@ namespace LMSTest
 
             Model.Book book = new Model.Book();
             book = TestHelper.initBook();
+            book.Id = book.Id + "TEST";
 
             //先添加这本书
             SQLDAL.Book target = new SQLDAL.Book();
