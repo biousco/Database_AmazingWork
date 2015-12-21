@@ -313,6 +313,10 @@ namespace LMSTest
             actual =target.GetSingleBook(b_id).Name; //实际值
             Assert.AreEqual(expected, actual);
         }
+
+        /// <summary>
+        /// 添加书籍
+        /// </summary>
         [TestMethod()]
         public void AddBook()
         {
@@ -324,6 +328,9 @@ namespace LMSTest
             bool expected = true;
             Assert.AreEqual(expected, actual);
         }
+        /// <summary>
+        /// 更新书籍
+        /// </summary>
         [TestMethod()]
         public void UpdateBook()
         {
@@ -337,6 +344,27 @@ namespace LMSTest
             bool actual = target.UpdateBook(book);
             bool expected = true;
             Assert.AreEqual(expected, actual);
+        }
+        /// <summary>
+        /// 删除书籍
+        /// </summary>
+        [TestMethod()]
+        public void DeleteBook()
+        {
+
+            Model.Book book = new Model.Book();
+            book = TestHelper.initBook();
+
+            //先添加这本书
+            SQLDAL.Book target = new SQLDAL.Book();
+            bool actual = target.AddBook(book);
+            bool expected = true;
+            Assert.AreEqual(expected, actual);
+            
+            //删除这本书
+            bool actual_2 = target.DeleteBook(book);
+            bool expected_2 = true;
+            Assert.AreEqual(expected_2, actual_2);
         }
     }
 

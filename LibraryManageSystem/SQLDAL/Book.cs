@@ -71,7 +71,25 @@ namespace SQLDAL
             parameters[3].Value = book.Publisher;
             parameters[4].Value = Convert.ToInt32(book.Amount);
 
-            Model.Book prev = GetSingleBook(book.Id);
+            int n = Convert.ToInt32(SqlDbHelper.ExecuteNonQuery(strSql, CommandType.Text, parameters));
+            if (n == 1)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// 删除书籍
+        /// </summary>
+        /// <param name="book"></param>
+        /// <returns></returns>
+        public bool DeleteBook(Model.Book book)
+        {
+            string strSql = "delete from Book where b_id = @b_id";
+            SqlParameter[] parameters ={
+                           new SqlParameter ("@b_id",SqlDbType .VarChar,50)
+                                      };
+            parameters[0].Value = book.Id;
 
             int n = Convert.ToInt32(SqlDbHelper.ExecuteNonQuery(strSql, CommandType.Text, parameters));
             if (n == 1)

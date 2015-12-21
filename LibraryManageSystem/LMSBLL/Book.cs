@@ -67,9 +67,19 @@ namespace LMSBLL
             return book.AddBook(b_book);
         }
 
+        /// <summary>
+        /// 更新书籍
+        /// </summary>
+        /// <param name="b_book"></param>
+        /// <returns></returns>
         public bool UpdateBook(Model.Book b_book)
         {
             return book.UpdateBook(b_book);
+        }
+
+        public bool DeleteBook(Model.Book b_book)
+        {
+            return book.DeleteBook(b_book);
         }
     }
 }

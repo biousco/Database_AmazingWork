@@ -16,5 +16,6 @@ namespace IDAL
         bool ReturnBook(Model.Viewer viewer, Model.Book book, Model.Manager manager);
         bool AddBook(Model.Book book);
         bool UpdateBook(Model.Book book);
+        bool DeleteBook(Model.Book book);
     };
 }

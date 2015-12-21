@@ -70,5 +70,31 @@ namespace LibraryManageSystem
             BookDetail form = new BookDetail(2,book_id);
             form.ShowDialog();
         }
+
+        /// <summary>
+        /// 删除书籍
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void delBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("确认删除该书籍？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (res != DialogResult.OK) return;
+
+            int index = dataGridView1.CurrentRow.Index;
+            string book_id = dataGridView1.Rows[index].Cells["b_id"].Value.ToString();
+            Model.Book b_book = new Model.Book();
+            b_book.Id = book_id;
+            bool result = bll.DeleteBook(b_book);
+            if (result)
+            {
+                MessageBox.Show("书籍删除成功！");
+            }
+            else
+            {
+                MessageBox.Show("书籍删除失败...");
+            }
+            dataGridView1.DataSource = bll.GetList("");
+        }
     }
 }
