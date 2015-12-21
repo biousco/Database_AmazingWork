@@ -14,5 +14,6 @@ namespace IDAL
         Model.Book GetSingleBook(string book_id);
         Hashtable Borrow(Model.Book book, Model.Viewer viewer, Model.Manager manager);
         bool ReturnBook(Model.Viewer viewer, Model.Book book, Model.Manager manager);
+        bool AddBook(Model.Book book);
     };
 }

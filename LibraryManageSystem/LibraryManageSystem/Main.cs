@@ -63,6 +63,7 @@ namespace LibraryManageSystem
             {
                 this.Controls.Remove(borrowBtn);
                 this.Controls.Remove(returnBtn);
+                this.Controls.Remove(bookBtn);
             }
         }
 
@@ -119,6 +120,11 @@ namespace LibraryManageSystem
             this.Close();
         }
 
+        /// <summary>
+        /// 弹出归还窗口
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void returnBtn_Click(object sender, EventArgs e)
         {
             int index = dgvBookList.CurrentRow.Index;
@@ -128,6 +134,11 @@ namespace LibraryManageSystem
             this.Close();
         }
 
+        /// <summary>
+        /// 得到所有借阅记录
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             Record form = new Record();
@@ -139,6 +150,11 @@ namespace LibraryManageSystem
 
         }
 
+        /// <summary>
+        /// 退出程序确认
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Main_Closing(object sender, FormClosingEventArgs e)
         {
             DialogResult res = MessageBox.Show("请确认是否退出程序？","提示",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
@@ -150,6 +166,18 @@ namespace LibraryManageSystem
             {
                 e.Cancel = true;
             }
+        }
+
+        /// <summary>
+        /// 书籍管理窗口
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            BookManage form = new BookManage();
+            form.ShowDialog();
+
         }
     }
 }

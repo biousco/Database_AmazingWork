@@ -17,6 +17,34 @@ namespace SQLDAL
         public Book() { }
 
         /// <summary>
+        /// 添加书籍
+        /// </summary>
+        /// <param name="book"></param>
+        /// <returns></returns>
+        public bool AddBook(Model.Book book)
+        {
+            string strSql = "insert into [Book] (b_id, b_name, author, publisher, amount) values (@b_id,@b_name,@author,@publisher,@amount); ";
+            SqlParameter[] parameters ={
+                           new SqlParameter ("@b_id",SqlDbType .VarChar,50),
+                           new SqlParameter ("@b_name",SqlDbType .VarChar,50),
+                           new SqlParameter ("@author",SqlDbType .VarChar,50),
+                           new SqlParameter ("@publisher",SqlDbType .VarChar,50),
+                           new SqlParameter ("@amount",SqlDbType .Int,50),
+                                      };
+            parameters[0].Value = book.Id;
+            parameters[1].Value = book.Name;
+            parameters[2].Value = book.Author;
+            parameters[3].Value = book.Publisher;
+            parameters[4].Value = Convert.ToInt32(book.Amount);
+
+            int n = Convert.ToInt32(SqlDbHelper.ExecuteNonQuery(strSql, CommandType.Text, parameters));
+            if (n == 1)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
         /// 借阅书籍
         /// </summary>
         /// <param name="book"></param>

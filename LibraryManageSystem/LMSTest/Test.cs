@@ -125,7 +125,18 @@ namespace LMSTest
             actual =target.GetSingleBook(b_id).Name; //实际值
             Assert.AreEqual(expected, actual);
         }
-        
+        [TestMethod()]
+        public void AddBook()
+        {
+            Model.Book book = new Model.Book();
+            book = TestHelper.initBook();
+
+            SQLDAL.Book target = new SQLDAL.Book();
+            bool actual = target.AddBook(book);
+            bool expected = true;
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 
     [TestClass()]

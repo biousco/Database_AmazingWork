@@ -38,7 +38,7 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.titleLabel = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -112,43 +112,43 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(147, 200);
+            this.textBox2.Location = new System.Drawing.Point(147, 127);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(272, 21);
             this.textBox2.TabIndex = 36;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(147, 240);
+            this.textBox3.Location = new System.Drawing.Point(147, 167);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(272, 21);
             this.textBox3.TabIndex = 37;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(147, 167);
+            this.textBox4.Location = new System.Drawing.Point(147, 236);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(272, 21);
             this.textBox4.TabIndex = 38;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(147, 131);
+            this.textBox5.Location = new System.Drawing.Point(147, 200);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(272, 21);
             this.textBox5.TabIndex = 39;
             // 
-            // label3
+            // titleLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(175, 38);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label3.Size = new System.Drawing.Size(92, 27);
-            this.label3.TabIndex = 40;
-            this.label3.Text = "添加书籍";
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.titleLabel.Location = new System.Drawing.Point(175, 38);
+            this.titleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.titleLabel.Size = new System.Drawing.Size(92, 27);
+            this.titleLabel.TabIndex = 40;
+            this.titleLabel.Text = "添加书籍";
             // 
             // button3
             // 
@@ -169,6 +169,7 @@
             this.button1.TabIndex = 42;
             this.button1.Text = "确认";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // BookDetail
             // 
@@ -177,7 +178,7 @@
             this.ClientSize = new System.Drawing.Size(459, 384);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
@@ -190,6 +191,7 @@
             this.Controls.Add(this.label5);
             this.Name = "BookDetail";
             this.Text = "BookDetail";
+            this.Load += new System.EventHandler(this.BookDetail_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,7 +209,7 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
     }
