@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -113,12 +114,8 @@ namespace LibraryManageSystem
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            
-            int index = dgvBookList.CurrentRow.Index;
-            string book_id = dgvBookList.Rows[index].Cells["b_id"].Value.ToString();
-            BorrowDialog form = new BorrowDialog(book_id);
-            form.ShowDialog();
-            this.Close();
+            Thread t = new Thread(new ThreadStart(ThreadProcBorrowDialog));
+            t.Start();
         }
 
         /// <summary>
@@ -128,11 +125,8 @@ namespace LibraryManageSystem
         /// <param name="e"></param>
         private void returnBtn_Click(object sender, EventArgs e)
         {
-            int index = dgvBookList.CurrentRow.Index;
-            string book_id = dgvBookList.Rows[index].Cells["b_id"].Value.ToString();
-            Return form = new Return(book_id);
-            form.ShowDialog();
-            this.Close();
+            Thread t = new Thread(new ThreadStart(ThreadProcReturnDialog));
+            t.Start();
         }
 
         /// <summary>
@@ -176,9 +170,31 @@ namespace LibraryManageSystem
         /// <param name="e"></param>
         private void button2_Click_1(object sender, EventArgs e)
         {
+            Thread t = new Thread(new ThreadStart(ThreadProcBookManage));
+            t.Start();
+
+        }
+
+        private static void ThreadProcBookManage()
+        {
             BookManage form = new BookManage();
             form.ShowDialog();
+        }
 
+        private void ThreadProcBorrowDialog()
+        {
+            int index = dgvBookList.CurrentRow.Index;
+            string book_id = dgvBookList.Rows[index].Cells["b_id"].Value.ToString();
+            BorrowDialog form = new BorrowDialog(book_id);
+            form.ShowDialog();
+        }
+
+        private void ThreadProcReturnDialog()
+        {
+            int index = dgvBookList.CurrentRow.Index;
+            string book_id = dgvBookList.Rows[index].Cells["b_id"].Value.ToString();
+            Return form = new Return(book_id);
+            form.ShowDialog();
         }
     }
 }
