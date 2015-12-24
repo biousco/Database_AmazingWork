@@ -39,10 +39,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.StartDateLabel = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.TotalDateLabel = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BookNameLabel
@@ -88,17 +84,18 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(355, 351);
+            this.button2.Location = new System.Drawing.Point(355, 304);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(127, 46);
             this.button2.TabIndex = 19;
             this.button2.Text = "取消";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // confirmBtn
             // 
             this.confirmBtn.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.confirmBtn.Location = new System.Drawing.Point(160, 351);
+            this.confirmBtn.Location = new System.Drawing.Point(160, 304);
             this.confirmBtn.Name = "confirmBtn";
             this.confirmBtn.Size = new System.Drawing.Size(131, 46);
             this.confirmBtn.TabIndex = 18;
@@ -165,59 +162,11 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "借阅详情";
             // 
-            // StartDateLabel
-            // 
-            this.StartDateLabel.AutoSize = true;
-            this.StartDateLabel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.StartDateLabel.Location = new System.Drawing.Point(293, 268);
-            this.StartDateLabel.Name = "StartDateLabel";
-            this.StartDateLabel.Size = new System.Drawing.Size(96, 21);
-            this.StartDateLabel.TabIndex = 25;
-            this.StartDateLabel.Text = "2015-10-11";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label11.Location = new System.Drawing.Point(140, 267);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label11.Size = new System.Drawing.Size(122, 21);
-            this.label11.TabIndex = 24;
-            this.label11.Text = "借阅开始日期：";
-            // 
-            // TotalDateLabel
-            // 
-            this.TotalDateLabel.AutoSize = true;
-            this.TotalDateLabel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TotalDateLabel.Location = new System.Drawing.Point(293, 308);
-            this.TotalDateLabel.Name = "TotalDateLabel";
-            this.TotalDateLabel.Size = new System.Drawing.Size(44, 21);
-            this.TotalDateLabel.TabIndex = 27;
-            this.TotalDateLabel.Text = "52天";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label13.Location = new System.Drawing.Point(156, 308);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label13.Size = new System.Drawing.Size(106, 21);
-            this.label13.TabIndex = 26;
-            this.label13.Text = "总借阅天数：";
-            // 
             // BorrowResult
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(658, 449);
-            this.Controls.Add(this.TotalDateLabel);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.StartDateLabel);
-            this.Controls.Add(this.label11);
+            this.ClientSize = new System.Drawing.Size(658, 391);
             this.Controls.Add(this.BookNameLabel);
             this.Controls.Add(this.BookNumLabel);
             this.Controls.Add(this.UserNoLabel);
@@ -250,9 +199,5 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label StartDateLabel;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label TotalDateLabel;
-        private System.Windows.Forms.Label label13;
     }
 }

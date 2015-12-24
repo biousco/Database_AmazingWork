@@ -86,6 +86,7 @@ namespace LibraryManageSystem
                 {
                     MessageBox.Show("书籍添加成功！");
                     this.Hide();
+                    this.DialogResult = DialogResult.OK;
                 } else
                 {
                     MessageBox.Show("书籍添加失败...请检查书籍编号");
@@ -97,6 +98,7 @@ namespace LibraryManageSystem
                 {
                     MessageBox.Show("书籍更新成功！");
                     this.Hide();
+                    this.DialogResult = DialogResult.OK;
                 }
                 else
                 {

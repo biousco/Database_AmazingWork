@@ -27,6 +27,14 @@ namespace LibraryManageSystem
 
         }
 
+        public void UpdateData(Form form)
+        {
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                Fill();
+            }
+        }
+
         /// <summary>
         /// 渲染表列名
         /// </summary>
@@ -55,7 +63,7 @@ namespace LibraryManageSystem
         private void borrowBtn_Click(object sender, EventArgs e)
         {
             BookDetail form = new BookDetail(1);
-            form.ShowDialog();
+            UpdateData(form);
         }
 
         /// <summary>
@@ -68,7 +76,7 @@ namespace LibraryManageSystem
             int index = dataGridView1.CurrentRow.Index;
             string book_id = dataGridView1.Rows[index].Cells["b_id"].Value.ToString();
             BookDetail form = new BookDetail(2,book_id);
-            form.ShowDialog();
+            UpdateData(form);
         }
 
         /// <summary>
@@ -95,6 +103,16 @@ namespace LibraryManageSystem
                 MessageBox.Show("书籍删除失败...");
             }
             dataGridView1.DataSource = bll.GetList("");
+        }
+
+        public static void event_updateData()
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -42,8 +42,6 @@ namespace LibraryManageSystem
             manager.Id = UserHelper.userId;
             Hashtable result = Book.Borrow(book, viewer, manager);
             MessageBox.Show(result["msg"].ToString());
-            Main form = new Main();
-            form.Show();
             this.Close();
         }
 

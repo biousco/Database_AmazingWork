@@ -40,10 +40,6 @@ namespace LibraryManageSystem
             Model.Book _book = Book.GetSingleBook(book.Id);
             BookNumLabel.Text = book.Id;
             BookNameLabel.Text = _book.Name;
-            StartDateLabel.Text = "还没写";
-            TotalDateLabel.Text = "还没写";
-            
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -56,14 +52,16 @@ namespace LibraryManageSystem
             {
                 MessageBox.Show("归还失败！");
             }
-            Main form = new Main();
-            form.Show();
-            this.Close();
         }
 
         private void BorrowResult_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
