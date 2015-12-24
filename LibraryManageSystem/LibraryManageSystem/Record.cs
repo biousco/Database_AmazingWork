@@ -41,12 +41,6 @@ namespace LibraryManageSystem
             {
                 dataGridView1.Columns[i].HeaderText = ColName[i];
             }
-
-
-            if (comboBox1.Text == "逾期记录")
-            {
-                sql = "";
-            }
             
         }
 
