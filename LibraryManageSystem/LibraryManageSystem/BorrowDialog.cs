@@ -59,6 +59,18 @@ namespace LibraryManageSystem
 
         }
 
+        /// <summary>
+        /// 更新数据
+        /// </summary>
+        /// <param name="form"></param>
+        public void UpdateData(Form form)
+        {
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                this.DialogResult = DialogResult.OK;
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             Model.Viewer v = new Model.Viewer();
@@ -71,10 +83,10 @@ namespace LibraryManageSystem
 
             string borrowUserNo = borrowUserNoLabel.Text;
             string userName = viewer.GetViewerName(borrowUserNo);
-                UserHelper._userName = userName;
-                UserHelper._userId = borrowUserNo;
-                Borrow form = new Borrow();
-                form.Show();
+            UserHelper._userName = userName;
+            UserHelper._userId = borrowUserNo;
+            Borrow form = new Borrow();
+            UpdateData(form);
         }
 
         private void BorrowDialog_Load(object sender, EventArgs e)

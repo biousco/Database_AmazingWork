@@ -48,6 +48,7 @@ namespace LibraryManageSystem
             if(result == true)
             {
                 MessageBox.Show("归还成功！");
+                this.DialogResult = DialogResult.OK;
             } else
             {
                 MessageBox.Show("归还失败！");

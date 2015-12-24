@@ -25,6 +25,19 @@ namespace LibraryManageSystem
         }
 
         /// <summary>
+        /// 更新数据
+        /// </summary>
+        /// <param name="form"></param>
+        public void UpdateData(Form form)
+        {
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                DataTable a = bll.GetList("");
+                dgvBookList.DataSource = a;
+            }
+        }
+
+        /// <summary>
         /// 渲染表列名
         /// </summary>
         public void InitColName()
@@ -67,6 +80,8 @@ namespace LibraryManageSystem
                 this.Controls.Remove(bookBtn);
             }
         }
+
+
 
         public void HelloUser()
         {
@@ -114,8 +129,10 @@ namespace LibraryManageSystem
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            Thread t = new Thread(new ThreadStart(ThreadProcBorrowDialog));
-            t.Start();
+            int index = dgvBookList.CurrentRow.Index;
+            string book_id = dgvBookList.Rows[index].Cells["b_id"].Value.ToString();
+            BorrowDialog form = new BorrowDialog(book_id);
+            UpdateData(form);
         }
 
         /// <summary>
@@ -125,8 +142,10 @@ namespace LibraryManageSystem
         /// <param name="e"></param>
         private void returnBtn_Click(object sender, EventArgs e)
         {
-            Thread t = new Thread(new ThreadStart(ThreadProcReturnDialog));
-            t.Start();
+            int index = dgvBookList.CurrentRow.Index;
+            string book_id = dgvBookList.Rows[index].Cells["b_id"].Value.ToString();
+            Return form = new Return(book_id);
+            UpdateData(form);
         }
 
         /// <summary>
@@ -181,20 +200,26 @@ namespace LibraryManageSystem
             form.ShowDialog();
         }
 
+        /// <summary>
+        /// 线程 打开借阅窗口
+        /// </summary>
         private void ThreadProcBorrowDialog()
         {
             int index = dgvBookList.CurrentRow.Index;
             string book_id = dgvBookList.Rows[index].Cells["b_id"].Value.ToString();
             BorrowDialog form = new BorrowDialog(book_id);
-            form.ShowDialog();
+            UpdateData(form);
         }
 
+        /// <summary>
+        /// 线程 打开归还窗口
+        /// </summary>
         private void ThreadProcReturnDialog()
         {
             int index = dgvBookList.CurrentRow.Index;
             string book_id = dgvBookList.Rows[index].Cells["b_id"].Value.ToString();
             Return form = new Return(book_id);
-            form.ShowDialog();
+            UpdateData(form);
         }
     }
 }

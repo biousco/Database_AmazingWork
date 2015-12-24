@@ -28,6 +28,18 @@ namespace LibraryManageSystem
             returnBookNoForm.Text = b_id;
         }
 
+        /// <summary>
+        /// 更新数据
+        /// </summary>
+        /// <param name="form"></param>
+        public void UpdateData(Form form)
+        {
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                this.DialogResult = DialogResult.OK;
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             viewer.Id = returnUserNoForm.Text;
@@ -44,8 +56,8 @@ namespace LibraryManageSystem
             }
             manager.Id = UserHelper.userId;
             BorrowResult form = new BorrowResult(viewer, book, manager);
-            form.ShowDialog();
-            this.Close();
+            UpdateData(form);
+            
         }
     }
 }

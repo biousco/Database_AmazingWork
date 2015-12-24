@@ -42,7 +42,7 @@ namespace LibraryManageSystem
             manager.Id = UserHelper.userId;
             Hashtable result = Book.Borrow(book, viewer, manager);
             MessageBox.Show(result["msg"].ToString());
-            this.Close();
+            this.DialogResult = DialogResult.OK;
         }
 
         private void Borrow_Load(object sender, EventArgs e)

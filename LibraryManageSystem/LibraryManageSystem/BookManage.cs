@@ -27,6 +27,10 @@ namespace LibraryManageSystem
 
         }
 
+        /// <summary>
+        /// 更新数据
+        /// </summary>
+        /// <param name="form"></param>
         public void UpdateData(Form form)
         {
             if (form.ShowDialog() == DialogResult.OK)
